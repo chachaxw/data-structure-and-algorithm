@@ -8,38 +8,43 @@
 */
 
 
+#include <cstdint>
 #include <iostream>
 #include <string>
+#include <functional>
+#include <utility>
+#include <unordered_map>
+using namespace std;
 
 class Solution {
-public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        //Key is the number and value is its index in the vector.
-        unordered_map<int, int> hash;
-        vector<int> result;
+    public:
+        vector<int> twoSum(vector<int>& nums, int target) {
+            //Key is the number and value is its index in the vector.
+            unordered_map<int, int> hash;
+            vector<int> result;
 
-        for(int i = 0; i < nums.size(); i++) {
-            int number = target - nums[i];
-            
-            //if number is found in map, return them
-            if (hash.find(number) != hash.end()) {
-                //+1 because indices are NOT zero based
-                result.push_back(hash[number]);
-                result.push_back(i);
-                
-                return result;
+            for(int i = 0; i < nums.size(); i++) {
+                int number = target - nums[i];
+
+                //if number is found in map, return them
+                if (hash.find(number) != hash.end()) {
+                    result.push_back(hash[number]);
+                    result.push_back(i);
+                    return result;
+                }
+
+                hash[nums[i]] = i;
             }
 
-            hash[nums[i]] = i;
+            cout << "Result is" << result << endl;
+            return result;
         }
-        
-        cout << result << endl;
-        return result;
-    }
 };
 
 int main()
 {
     /* code */
     Solution.twoSum(9);
+
+    return 0;
 }
