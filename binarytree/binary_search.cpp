@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-11-24 19:05:12 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-11-24 23:52:15
+ * @Last Modified time: 2018-11-25 00:08:37
  */
 
 /**
@@ -59,16 +59,17 @@ int binarySearch(vector<int>& nums, int target) {
     return -1;
 }
 
-/**
+/***********************************************************************************
  * Given a sorted array of integers, find the starting and ending position of a given target value.
  * Your algorithm's runtime complexity must be in the order of O(log n).
  * If the target is not found in the array, return [-1, -1].
  * For example, Given [5, 7, 7, 8, 8, 10] and target value 8, return [3, 4].
- */
+************************************************************************************/
+
 vector<int> binarySearchForRange(vector<int> nums, int target) {
 
     int start, end, mid;
-    vector<int> bound;
+    vector<int> bound(2);
 
     // Search for left bound
     start = 0;
@@ -119,6 +120,13 @@ vector<int> binarySearchForRange(vector<int> nums, int target) {
     return bound;
 }
 
+void printVector(vector<int> &vec) {
+    for(int i= 0; i < vec.size(); i++) {
+        printf("Vector is %3d", vec[i]);
+        printf("\n");
+    }
+    cout << endl;
+}
 
 int main() {
     int arr[] = {1, 3, 4, 6, 7, 8, 10, 10, 10, 13, 14, 18, 19, 21, 24, 37, 40, 45, 71};
@@ -126,8 +134,9 @@ int main() {
     int target = 10;
 
     int result1 = binarySearch(nums, target);
-    // vector<int> result2 = binarySearchForRange(nums, target);
+    vector<int> result2 = binarySearchForRange(nums, target);
 
     cout << "Binary search result is " << result1 << "\n";
-    // cout << "Binary search for range is " << result2 << endl;
+
+    printVector(result2);
 }
