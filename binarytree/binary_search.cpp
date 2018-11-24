@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-11-24 19:05:12 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-11-24 20:00:37
+ * @Last Modified time: 2018-11-24 23:52:15
  */
 
 /**
@@ -13,22 +13,30 @@
  * 4. If guess is too low, set min equal to one more than guess;
  * 5. If guess is too high, set max equal to one less than guess;
  * 6. Go back to step two.
+ * 
+ * 3 Parts of a Successful Binary Search
+ * 1. Pre-processing - Sort if collection is unsorted.
+ * 2. Binary Search - Using a loop or recursion to divide search space in half after each comparison.
+ * 3. Post-processing - Determine viable candidates in the remaining space.
  */
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
-int binarySearch(int nums[], int target) {
+// Binary search template
+int binarySearch(vector<int>& nums, int target) {
     
-    if (nums == NULL || sizeof(nums) == 0) {
+    if (nums.empty()) {
         return -1;
     }
 
     int mid;
     int min = 0;
-    int max = sizeof(nums) -1;
+    int max = nums.size() -1;
     
     while(min + 1 < max){
+        // Prevent (left + right) overflow
         mid = min + (max - min) / 2;
         
         if (nums[mid] == target) {
@@ -44,18 +52,82 @@ int binarySearch(int nums[], int target) {
         return min;
     }
 
-    if (nums[max] == target ) {
+    if (nums[max] == target) {
         return max;
     }
 
     return -1;
 }
 
+/**
+ * Given a sorted array of integers, find the starting and ending position of a given target value.
+ * Your algorithm's runtime complexity must be in the order of O(log n).
+ * If the target is not found in the array, return [-1, -1].
+ * For example, Given [5, 7, 7, 8, 8, 10] and target value 8, return [3, 4].
+ */
+vector<int> binarySearchForRange(vector<int> nums, int target) {
+
+    int start, end, mid;
+    vector<int> bound;
+
+    // Search for left bound
+    start = 0;
+    end = nums.size() - 1;
+    
+    while(start + 1 < end){
+        // Prevent (left + right) overflow
+        mid = start + (end - start) / 2;
+        if (nums[mid] == target) {
+            end = mid;
+        } else if (nums[mid] < target) {
+            start = mid;
+        } else {
+            end = mid;
+        }
+    }
+    if (nums[start] == target) {
+        bound[0] = start;
+    } else if (nums[end] == target) {
+        bound[0] = end;
+    } else {
+        bound[0] = bound[1] = -1;
+        return bound;
+    }
+
+    // Search for right bound
+    while(start + 1 < end){
+        // Prevent (left + right) overflow
+        mid = start + (end - start) / 2;
+        if (nums[mid] == target) {
+            start = mid;
+        } else if (nums[mid] < target) {
+            start = mid;
+        } else {
+            end = mid;
+        }
+    }
+
+    if (nums[end] == target) {
+        bound[1] = end;
+    } else if (nums[start] == target) {
+        bound[1] = start;
+    } else {
+        bound[0] = bound[1] = -1;
+        return bound;
+    }
+
+    return bound;
+}
+
+
 int main() {
-    int nums[] = {1, 3, 4, 6, 7, 8, 10, 13, 14, 18, 19, 21, 24, 37, 40, 45, 71};
+    int arr[] = {1, 3, 4, 6, 7, 8, 10, 10, 10, 13, 14, 18, 19, 21, 24, 37, 40, 45, 71};
+    vector<int> nums(arr, arr + sizeof(arr)/sizeof(int));
     int target = 10;
 
-    int result = binarySearch(nums, target);
+    int result1 = binarySearch(nums, target);
+    // vector<int> result2 = binarySearchForRange(nums, target);
 
-    cout << "Result is " << result << endl;
+    cout << "Binary search result is " << result1 << "\n";
+    // cout << "Binary search for range is " << result2 << endl;
 }
