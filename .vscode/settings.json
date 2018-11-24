@@ -3,7 +3,11 @@
     "*.wpy": "vue",
     "unordered_map": "cpp",
     "vector": "cpp",
-    "ostream": "cpp"
+    "ostream": "cpp",
+    "stack": "cpp",
+    "iostream": "cpp"
   },
-  "C_Cpp.errorSquiggles": "Disabled"
+  "C_Cpp.errorSquiggles": "Disabled",
+  "fileheader.LastModifiedBy": "Chacha",
+  "fileheader.Author": "Chacha"
 }

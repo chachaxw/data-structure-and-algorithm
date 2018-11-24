@@ -1,19 +1,20 @@
-/*
+/**
  * @Author: Chacha 
  * @Date: 2018-11-24 12:10:01 
- * @Last Modified by: Chou
- * @Last Modified time: 2018-11-24 13:24:02
+ * @Last Modified by: Chacha
+ * @Last Modified time: 2018-11-24 14:58:19
  * @Source: https://leetcode.com/problems/two-sum/
  */
 
-/*
-* Given an array of integers, return indices of the two numbers such that they add up to a specific target.
-* You may assume that each input would have exactly one solution, and you may not use the same element twice.
-* Example:
-*   Given nums = [2, 7, 11, 15], target = 9,
-*   Because nums[0] + nums[1] = 2 + 7 = 9,
-*   return [0, 1].
-*/
+/***********************************************************************************
+ * 
+ * Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+ * You may assume that each input would have exactly one solution, and you may not use the same element twice.
+ * Example:
+ *   Given nums = [2, 7, 11, 15], target = 9,
+ *   Because nums[0] + nums[1] = 2 + 7 = 9,
+ *   return [0, 1].
+************************************************************************************/
 
 
 #include <iostream>
