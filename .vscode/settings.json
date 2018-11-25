@@ -1,11 +1,13 @@
 {
   "files.associations": {
+    "*.wpy": "vue",
     "unordered_map": "cpp",
     "vector": "cpp",
     "ostream": "cpp",
     "stack": "cpp",
     "iostream": "cpp",
-    "__config": "cpp"
+    "__config": "cpp",
+    "iosfwd": "cpp"
   },
   "C_Cpp.errorSquiggles": "Disabled",
   "fileheader.LastModifiedBy": "Chacha",

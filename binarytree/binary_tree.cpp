@@ -2,12 +2,13 @@
  * @Author: Chacha 
  * @Date: 2018-11-24 13:31:24 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-11-24 14:58:36
+ * @Last Modified time: 2018-11-25 13:30:40
  * @Source: https://leetcode.com/explore/learn/card/data-structure-tree
  */
 
 
 #include <iostream>
+#include <vector>
 #include <stack>
 using namespace std;
 
@@ -40,6 +41,24 @@ void preorderTraversal(TreeNode* root) {
     preorderTraversal(root->right);
 }
 
+// Divide & Conquer
+vector<int> preorderTraversalDivideConquer(TreeNode* root) {
+    vector<int> result;
+
+    if (root == NULL) {
+        return result;
+    }
+
+    vector<int> left = preorderTraversalDivideConquer(root->left);
+    vector<int> right = preorderTraversalDivideConquer(root->right);
+
+    result.push_back(root->val);
+    result.insert(result.end(), left.begin(), left.end());
+    result.insert(result.end(), right.begin(), right.end());
+
+    return result;
+}
+
 // Iterative Way 1
 void iterativePreOrderTraversal1(TreeNode* root) {
     if(root == NULL) {
@@ -57,7 +76,7 @@ void iterativePreOrderTraversal1(TreeNode* root) {
             nStack.push(node);
             node = node->left;
         }
-        
+
         /**
          * While is end, and the top of the stack is the last left node,
          * and then start to pop the stack and output the right node.
@@ -115,6 +134,24 @@ void inOrderTraversal(TreeNode* root) {
     inOrderTraversal(root->right);
 }
 
+// Divide & Conquer
+vector<int> inOrderTraversalDivideConquer(TreeNode* root) {
+    vector<int> result;
+
+    if (root == NULL) {
+        return result;
+    }
+
+    vector<int> left = inOrderTraversalDivideConquer(root->left);
+    vector<int> right = inOrderTraversalDivideConquer(root->right);
+
+    result.insert(result.end(), left.begin(), left.end());
+    result.push_back(root->val);
+    result.insert(result.end(), right.begin(), right.end());
+
+    return result;
+}
+
 // Iterative Way
 void iterativeInOrderTraversal(TreeNode* root) {
     if (root == NULL) {
@@ -158,6 +195,24 @@ void postOrderTraversal(TreeNode* root) {
     postOrderTraversal(root->left);
     postOrderTraversal(root->right);
     cout << root->val;
+}
+
+// Divide & Conquer
+vector<int> postOrderTraversalDivideConquer(TreeNode* root) {
+    vector<int> result;
+
+    if (root == NULL) {
+        return result;
+    }
+
+    vector<int> left = postOrderTraversalDivideConquer(root->left);
+    vector<int> right = postOrderTraversalDivideConquer(root->right);
+
+    result.insert(result.end(), left.begin(), left.end());
+    result.insert(result.end(), right.begin(), right.end());
+    result.push_back(root->val);
+
+    return result;
 }
 
 // Iterative Way 1
