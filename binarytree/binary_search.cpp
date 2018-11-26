@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-11-24 19:05:12 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-11-25 11:09:01
+ * @Last Modified time: 2018-11-26 18:48:33
  */
 
 /**
@@ -159,7 +159,7 @@ int searchInRotatedBinaryTree(vector<int> nums, int target) {
             }
         } else {
             // situation 2, numbers between mid and end are sorted
-            if (nums[mid] < garget && target <= nums[end]) {
+            if (nums[mid] < target && target <= nums[end]) {
                 start = mid;
             } else {
                 end = mid;
@@ -167,7 +167,7 @@ int searchInRotatedBinaryTree(vector<int> nums, int target) {
         }
     }
 
-    if (nums(start) == target) {
+    if (nums[start] == target) {
         return start;
     }
     if (nums[end] == target) {
@@ -175,6 +175,40 @@ int searchInRotatedBinaryTree(vector<int> nums, int target) {
     }
 
     return -1;
+}
+
+/***********************************************************************************
+ * Given a sorted array and a target value, return the index if the target isfound. 
+ * If not, return the index where it would be if it were inserted inorder.
+ * You may assume NO duplicates in the array.
+ * Source: https://www.lintcode.com/problem/search-insert-position/description
+ * 
+ * Example: 
+ *  [1,3,5,6], 5 → 2
+ *  [1,3,5,6], 2 → 1
+ *  [1,3,5,6], 7 → 4
+ *  [1,3,5,6], 0 → 0
+************************************************************************************/
+int searchInsert(vector<int> nums, int target) {
+    if (nums.empty() == true) {
+        return -1;
+    }
+
+    int start = -1, mid, end = nums.size() - 1;
+
+    while(start + 1 < end) {
+        mid = start + (end - start) / 2;
+
+        if (nums[mid] == target) {
+            return mid;
+        } else if(nums[mid] < target) {
+            start = mid;
+        } else {
+            end = mid;
+        }
+    }
+
+    return start + 1;
 }
 
 
