@@ -2,15 +2,14 @@
  * @Author: Chacha 
  * @Date: 2018-11-27 09:28:23 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-11-27 18:38:01
+ * @Last Modified time: 2018-11-27 23:26:09
  */
 
-/**
+/***********************************************************************************
  * Write an efficient algorithm that searches for a value in an m x n matrix. 
  * This matrix has the following properties:
  *  1. Integers in each row are sorted from left to right.
  *  2. The first integer of each row is greater than the last integer of the previous row.
- * Source: https://leetcode.com/problems/search-a-2d-matrix/
  * 
  * Example 1:
  * Input:
@@ -31,18 +30,19 @@
  * target = 13
  * Output: false
  * 
- */
+ * Source: https://leetcode.com/problems/search-a-2d-matrix/
+************************************************************************************/
 
 #include <iostream>
 #include <vector>
 using namespace std;
 
-int searchMatrix(vector<vector<int> > matrix, int target) {
-    if (matrix.empty() == true) {
+bool searchMatrix1(vector<vector<int> > matrix, int target) {
+    if (matrix.empty() == true || matrix[0].empty()) {
         return false;
     }
 
-    int ROW = matrix.size(), COL = matrix[0].size();
+    const int ROW = matrix.size(), COL = matrix[0].size();
     int start = -1, end = ROW * COL, mid;
 
     while(start + 1 < end) {
@@ -60,6 +60,44 @@ int searchMatrix(vector<vector<int> > matrix, int target) {
     return false;
 }
 
+/***********************************************************************************
+ * Write an efficient algorithm that searches for a value in an m x n matrix, 
+ * return the occurrence of it.This matrix has the following properties:
+ *  1. Integers in each row are sorted from left to right.
+ *  2. Integers in each column are sorted from up to bottom.
+ *  3. No duplicate integers in each row or column.
+ * 
+ * Example:
+ *  [1, 3, 5, 7],
+ *  [2, 4, 7, 8],
+ *  [3, 5, 9, 10]
+ * 
+ * Given target = 3, return 2.
+ * 
+ * Source: https://leetcode.com/problems/search-a-2d-matrix-ii/
+************************************************************************************/
+
+bool searchMatrix2(vector<vector<int> >& matrix, int target) {
+    if (matrix.empty() || matrix[0].empty()) {
+        return false;
+    }
+
+    const int ROW = matrix.size();
+    const int COL = matrix[0].size();
+    int row = 0, col = COL - 1, occur = 0;
+    
+    while(row < ROW && col >= 0){
+        if (matrix[row][col] == target) {
+            return true;
+        } else if (target < matrix[row][col]) {
+            --col;
+        } else {
+            ++row;
+        }
+    }
+
+    return false;
+}
 
 int main() {
     int matrix[3][4] = {
@@ -69,7 +107,10 @@ int main() {
     };
 
     vector<vector<int> > matrixVec(3, vector<int> (4));
-    int result = searchMatrix(matrixVec, 3);
-    cout << "Result is " << result << endl;
+    int result1 = searchMatrix1(matrixVec, 10);
+    bool result2 = searchMatrix2(matrixVec, 34);
+
+    cout << "Result1 is " << result1 << "\n";
+    cout << "Result2 is " << result2 << endl;
 }
 
