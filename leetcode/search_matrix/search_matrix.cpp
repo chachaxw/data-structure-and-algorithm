@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-11-27 09:28:23 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-11-27 23:26:09
+ * @Last Modified time: 2018-11-28 13:13:45
  */
 
 /***********************************************************************************
@@ -84,7 +84,7 @@ bool searchMatrix2(vector<vector<int> >& matrix, int target) {
 
     const int ROW = matrix.size();
     const int COL = matrix[0].size();
-    int row = 0, col = COL - 1, occur = 0;
+    int row = 0, col = COL - 1;
     
     while(row < ROW && col >= 0){
         if (matrix[row][col] == target) {
