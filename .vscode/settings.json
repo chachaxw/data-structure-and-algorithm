@@ -11,5 +11,6 @@
   },
   "C_Cpp.errorSquiggles": "Disabled",
   "fileheader.LastModifiedBy": "Chacha",
-  "fileheader.Author": "Chacha"
+  "fileheader.Author": "Chacha",
+  "editor.tabSize": 4
 }

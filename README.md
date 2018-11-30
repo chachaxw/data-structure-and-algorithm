@@ -10,6 +10,7 @@ data structure and algorithm.
 2. [二叉树的遍历详解（前序中序后序层次-递归和非递归）](https://shimo.im/docs/MAbjWlrqWqU1f72m/)
 3. [视觉直观感受 7 种常用的排序算法](https://shimo.im/doc/8KWauxFPQUwhe5wI/)
 4. [素数生成算法](https://shimo.im/doc/j5MUwPfDObckzUHA/)
+5. [红-黑树](https://shimo.im/docs/IdtXEZbkUMQLV54a/)
 
 ## Learning Tools
 [LeetCode](https://leetcode.com)
