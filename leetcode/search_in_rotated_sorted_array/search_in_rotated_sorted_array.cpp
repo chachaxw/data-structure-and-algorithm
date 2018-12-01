@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-11-28 10:46:20 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-11-29 18:13:57
+ * @Last Modified time: 2018-12-01 10:55:17
  */
 
 #include <iostream>
@@ -121,86 +121,6 @@ bool searchInRotatedSortedArray2(vector<int>& nums, int target) {
     
     return false;
 }
-
-/***********************************************************************************
- * Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand. 
- * (i.e.,  [0,1,2,4,5,6,7] might become  [4,5,6,7,0,1,2]). Find the minimum element.
- * You may assume no duplicate exists in the array.
- * 
- * Example 1:
- *  Input: [3,4,5,1,2] 
- *  Output: 1
- * 
- * Example 2:
- *  Input: [4,5,6,7,0,1,2]
- *  Output: 0
- * Source: https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
-************************************************************************************/
-int findMin1(vector<int>& nums) {
-    if (nums.empty() == true) {
-        return -1;
-    }
-    
-    int start = 0, end = nums.size() - 1, mid;
-    
-    while (start + 1 < end) {
-        mid = start + (end - start) / 2;
-        
-        if (nums[mid] < nums[end]) {
-            end = mid;
-        } else {
-            start = mid;
-        }
-    }
-    
-    if (nums[start] < nums[end]) {
-        return nums[start];
-    } else {
-        return nums[end];
-    }
-}
-
-/***********************************************************************************
- * Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
- * (i.e.,  [0,1,2,4,5,6,7] might become  [4,5,6,7,0,1,2]). 
- * Find the minimum element. The array may contain duplicates.
- * 
- * Example 1:
- *  Input: [1,3,5]
- *  Output: 1
- * 
- * Example 2:
- *  Input: [2,2,2,0,1]
- *  Output: 0
- * Source: https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/
-************************************************************************************/
-
-int findMin2(vector<int>& nums) {
-    if (nums.empty() == true) {
-        return -1;
-    }
-    
-    int start = 0, end = nums.size() - 1, mid;
-    
-    while(start + 1 < end) {
-        mid = start + (end - start) / 2;
-        
-        if (nums[end] < nums[mid]) {
-            start = mid;
-        } else if (nums[end] > nums[mid]) {
-            end = mid;
-        } else {
-            --end;
-        }
-    }
-    
-    if (nums[start] < nums[end]) {
-        return nums[start];
-    } else {
-        return nums[end];
-    }
-}
-
 
 int main() {
     int arr[] = {2, 5, 6, 0, 0, 1, 2};
