@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-11-24 19:05:12 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-11-30 23:54:16
+ * @Last Modified time: 2018-12-02 14:42:16
  */
 
 /**
@@ -154,7 +154,7 @@ int searchInsert(vector<int> nums, int target) {
     return start + 1;
 }
 
-
+// Print vector value
 void printVector(vector<int> &vec) {
     for(int i= 0; i < vec.size(); i++) {
         printf("Vector is %3d", vec[i]);
