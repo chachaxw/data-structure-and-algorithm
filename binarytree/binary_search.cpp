@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-11-24 19:05:12 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-02 14:42:16
+ * @Last Modified time: 2018-12-03 21:41:10
  */
 
 /**
@@ -133,7 +133,7 @@ vector<int> binarySearchForRange(vector<int> nums, int target) {
  *  [1,3,5,6], 0 → 0
 ************************************************************************************/
 int searchInsert(vector<int> nums, int target) {
-    if (nums.empty() == true) {
+    if (nums.empty()) {
         return -1;
     }
 

@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-12-01 09:01:35 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-01 10:54:57
+ * @Last Modified time: 2018-12-03 21:40:35
  */
 
 #include <iostream>
@@ -24,7 +24,7 @@ using namespace std;
  * Source: https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
 ************************************************************************************/
 int findMin1(vector<int>& nums) {
-    if (nums.empty() == true) {
+    if (nums.empty()) {
         return -1;
     }
 
@@ -63,7 +63,7 @@ int findMin1(vector<int>& nums) {
  * Source: https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/
 ************************************************************************************/
 int findMin2(vector<int>& nums) {
-    if (nums.empty() == true) {
+    if (nums.empty()) {
         return -1;
     }
 

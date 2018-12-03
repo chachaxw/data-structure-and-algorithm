@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-11-28 10:46:20 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-01 10:55:17
+ * @Last Modified time: 2018-12-03 21:41:23
  */
 
 #include <iostream>
@@ -26,7 +26,7 @@ using namespace std;
  * Source: https://leetcode.com/problems/search-in-rotated-sorted-array/
 ************************************************************************************/
 int searchInRotatedSortedArray1(vector<int> nums, int target) {
-    if (nums.empty() == true) {
+    if (nums.empty()) {
         return -1;
     }
 
@@ -83,7 +83,7 @@ int searchInRotatedSortedArray1(vector<int> nums, int target) {
  * Source: https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
 ************************************************************************************/
 bool searchInRotatedSortedArray2(vector<int>& nums, int target) {
-    if (nums.empty() == true) {
+    if (nums.empty()) {
         return false;
     }
 

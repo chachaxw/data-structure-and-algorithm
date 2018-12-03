@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-11-27 09:28:23 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-02 10:48:02
+ * @Last Modified time: 2018-12-03 21:39:45
  */
 
 /***********************************************************************************
@@ -38,7 +38,7 @@
 using namespace std;
 
 bool searchMatrix1(vector<vector<int> > matrix, int target) {
-    if (matrix.empty() == true || matrix[0].empty()) {
+    if (matrix.empty() || matrix[0].empty()) {
         return false;
     }
 
