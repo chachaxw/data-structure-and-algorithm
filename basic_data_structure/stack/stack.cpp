@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-12-05 22:58:19 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-05 23:06:51
+ * @Last Modified time: 2018-12-05 23:27:17
  */
 
 #include <iostream>
@@ -34,6 +34,26 @@ class MyStack {
             return true;
         }
 };
+
+/***********************************************************************************
+ * Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+ * 1. push(x) -- Push element x onto stack.
+ * 2. pop() -- Removes the element on top of the stack.
+ * 3. top() -- Get the top element.
+ * 4. getMin() -- Retrieve the minimum element in the stack.
+ * 
+ * Example:
+ *  MinStack minStack = new MinStack();
+ *  minStack.push(-2);
+ *  minStack.push(0);
+ *  minStack.push(-3);
+ *  minStack.getMin();   --> Returns -3.
+ *  minStack.pop();
+ *  minStack.top();      --> Returns 0.
+ *  minStack.getMin();   --> Returns -2.
+ * 
+ * Source: https://leetcode-cn.com/explore/learn/card/queue-stack/218/stack-last-in-first-out-data-structure/877/
+************************************************************************************/
 
 int main() {
     MyStack s;

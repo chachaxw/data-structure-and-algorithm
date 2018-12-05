@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-12-03 17:14:17 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-03 18:16:39
+ * @Last Modified time: 2018-12-05 23:25:09
  */
 
 /***********************************************************************************
@@ -119,3 +119,20 @@ public:
  * bool param_5 = obj.isEmpty();
  * bool param_6 = obj.isFull();
  */
+
+int main() {
+    MyCircularQueue q;
+    q.enQueue(5);
+    q.enQueue(3);
+    if (!q.isEmpty()) {
+        cout << q.Front() << endl;
+    }
+    q.deQueue();
+    if (!q.isEmpty()) {
+        cout << q.Front() << endl;
+    }
+    q.deQueue();
+    if (!q.isEmpty()) {
+        cout << q.Front() << endl;
+    }
+}
