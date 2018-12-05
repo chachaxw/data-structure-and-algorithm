@@ -2,8 +2,44 @@
  * @Author: Chacha 
  * @Date: 2018-12-03 17:14:17 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-05 23:25:09
+ * @Last Modified time: 2018-12-05 23:32:10
  */
+
+#include<iostream>
+#include<vector>
+using namespace std;
+
+// Normal Queue
+class MyQueue {
+    private:
+        // store elements
+        vector<int> data;       
+        // a pointer to indicate the start position
+        int p_start;            
+    public:
+        MyQueue() {p_start = 0;}
+        /** Insert an element into the queue. Return true if the operation is successful. */
+        bool enQueue(int x) {
+            data.push_back(x);
+            return true;
+        }
+        /** Delete an element from the queue. Return true if the operation is successful. */
+        bool deQueue() {
+            if (isEmpty()) {
+                return false;
+            }
+            p_start++;
+            return true;
+        };
+        /** Get the front item from the queue. */
+        int Front() {
+            return data[p_start];
+        };
+        /** Checks whether the queue is empty or not. */
+        bool isEmpty()  {
+            return p_start >= data.size();
+        }
+};
 
 /***********************************************************************************
  * Design your implementation of the circular queue. 
