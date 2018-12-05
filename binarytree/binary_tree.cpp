@@ -284,6 +284,40 @@ void iterativePostOrderTraversal2(TreeNode* root) {
 }
 
 
+
+/**
+ * Binary Tree Level Order Traversal
+ * 
+ */
+// Recursive Way 1
+int PrintLevel1(TreeNode* root, int n, int level) {
+
+    if (root == NULL || level < 0) {
+        return 0;
+    } else if (level == n) {
+        cout << root->val;
+        return 1;
+    } else {
+        return PrintLevel1(root->left, n, level + 1) + PrintLevel1(root->right, n, level + 1);
+    }
+
+}
+
+// Recursive Way 2
+int PrintLevel2(TreeNode* root, int n, int level) {
+    
+    if (root == NULL || level < 0) {
+        return 0;
+    } else if (level == n) {
+        cout << root->val;
+        return 1;
+    } else {
+        return PrintLevel2(root->left, n, level - 1) + PrintLevel2(root->right, n, level - 1);
+    }
+
+}
+
+
 int main() {
     /* code */
     return 0;

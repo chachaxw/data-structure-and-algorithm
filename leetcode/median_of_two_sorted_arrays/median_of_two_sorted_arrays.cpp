@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-11-30 16:49:55 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-03 22:45:14
+ * @Last Modified time: 2018-12-04 21:39:11
  */
 
 #include <iostream>
@@ -55,7 +55,7 @@ int findKth(
         if (nums1_key > nums2_key) {
             return findKth(nums1, nums1_start, nums2, nums2_start + k / 2, k - k / 2);
         } else {
-            return findKth(nums1, nums1 + k / 2, nums2, nums2_start, k - k / 2);
+            return findKth(nums1, nums1_start + k / 2, nums2, nums2_start, k - k / 2);
         }
 
     }
@@ -79,16 +79,20 @@ double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
         vector<int>::size_type vec_len = NonEmpty.size();
 
         return vec_len % 2 == 0 ?
-                (NonEmpty[vec_len / 2 - 1] + NonEmpty[vec_len / 2]) / 2.0 :
+                (NonEmpty[vec_len / 2 - 1] + NonEmpty[vec_len / 2]) / 2 :
                 NonEmpty[vec_len / 2];
     }
 
     vector<int>::size_type len = nums1.size() + nums2.size();
 
     if (len % 2 == 0) {
-        return ((findKth(nums1, 0, nums2, 0, len / 2) + findKth(nums1, 0, nums2, 0, len / 2 + 1)) / 2.0);
+        return ((findKth(nums1, 0, nums2, 0, len / 2) + findKth(nums1, 0, nums2, 0, len / 2 + 1)) / 2);
     } else {
         return findKth(nums1, 0, nums2, 0, len / 2 + 1);
     }
 
+}
+
+int main() {
+    return 0;
 }
