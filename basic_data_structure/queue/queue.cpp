@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-12-03 17:14:17 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-05 23:32:10
+ * @Last Modified time: 2018-12-06 09:34:54
  */
 
 #include<iostream>
@@ -157,7 +157,7 @@ public:
  */
 
 int main() {
-    MyCircularQueue q;
+    MyCircularQueue q(6);
     q.enQueue(5);
     q.enQueue(3);
     if (!q.isEmpty()) {

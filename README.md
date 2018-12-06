@@ -20,9 +20,9 @@ collect some good articles about data structure and algorithm.
 2. [领扣中国](https://leetcode-cn.com)
 3. [看云数据结构与算法/leetcode/lintcode](https://www.kancloud.cn/kancloud/data-structure-and-algorithm-notes)
 4. [可视化算法Algorithm Visualizer](http://algorithm-visualizer.org)
-5. [旧金山大学数据结构和算法的可视化学习工具](https://www.cs.usfca.edu/~galles/visualization/source.html)
-6. [可视化排序算法Sorting](http://sorting.at/)
-7. [动画学习算法和数据结构VisulaGo](https://visualgo.net/en)
+4. [旧金山大学数据结构和算法的可视化学习工具](https://www.cs.usfca.edu/~galles/visualization/source.html)
+5. [可视化排序算法Sorting](http://sorting.at/)
+6. [动画学习算法和数据结构VisulaGo](https://visualgo.net/en)
 
 ## LeetCode Tags
 
