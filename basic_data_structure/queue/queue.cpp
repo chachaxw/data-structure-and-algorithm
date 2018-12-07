@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-12-03 17:14:17 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-06 09:34:54
+ * @Last Modified time: 2018-12-07 18:15:34
  */
 
 #include<iostream>
@@ -155,6 +155,54 @@ public:
  * bool param_5 = obj.isEmpty();
  * bool param_6 = obj.isFull();
  */
+
+
+/**
+ * Implement Queue by Two Stacks
+ * As the title described, you should only use two stacks to implement a queue's actions.
+ * The queue should support push(element), 
+ * pop() and top() where pop is pop the first(a.k.a front) element in the queue.
+ * Both pop and top methods should return the value of first element.
+ * LIFO + LIFO ==> FIFO
+ * 
+ * Example:
+ *  For push(1), pop(), push(2), push(3), top(), pop(), you should return 1, 2 and 2
+ */
+
+class MyQueue {
+public:
+    stack<int> stack1;
+    stack<int> stack2;
+
+    MyQueue() {
+
+    }
+
+    void push(int element) {
+        stack1.push(element);
+    }
+    
+    void adjust() {
+        if (stack2.empty()) {
+            while (!stack1.empty()) {
+                stack2.push(stack1.top());
+                stack1.pop();
+            }
+        }
+    }
+    
+    int pop() {
+        adjust();
+        int temp = stack2.top();
+        stack2.pop();
+        return temp;
+    }
+
+    int top() {
+        adjust();
+        return stack2.top();
+    }
+};
 
 int main() {
     MyCircularQueue q(6);
