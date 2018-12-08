@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-12-05 22:58:19 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-06 18:18:36
+ * @Last Modified time: 2018-12-06 20:10:57
  */
 
 #include <iostream>
@@ -54,9 +54,10 @@ class MyStack {
  * 
  * Source: https://leetcode-cn.com/explore/learn/card/queue-stack/218/stack-last-in-first-out-data-structure/877/
 ************************************************************************************/
-public:
-    stack<int> s1;
-    stack<int> s2;
+class MinStack {
+    public:
+        stack<int> s1;
+        stack<int> s2;
 
     MinStack() {
         
@@ -79,7 +80,7 @@ public:
     int getMin() {
         return s2.top();
     }
-};
+}
 
 /**
  * Your MinStack object will be instantiated and called as such:
