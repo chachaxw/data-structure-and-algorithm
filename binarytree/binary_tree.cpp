@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-11-24 13:31:24 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-08 22:15:27
+ * @Last Modified time: 2018-12-08 22:23:26
  * @Source: https://leetcode.com/explore/learn/card/data-structure-tree
  */
 
@@ -368,7 +368,7 @@ int maxDepthIterative(TreeNode* root) {
                 q.push(node->left);
             }
             if (node->right) {
-                q.push(nor->right);
+                q.push(node->right);
             }
         }
 
