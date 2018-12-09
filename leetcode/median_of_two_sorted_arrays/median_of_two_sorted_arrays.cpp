@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-11-30 16:49:55 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-04 21:39:11
+ * @Last Modified time: 2018-12-09 21:51:23
  */
 
 #include <iostream>
@@ -25,6 +25,7 @@ using namespace std;
  *  The median is (2 + 3)/2 = 2.5
  * 
  * Source: https://leetcode.com/problems/median-of-two-sorted-arrays/
+ *         https://leetcode.com/problems/median-of-two-sorted-arrays/solution/
 ************************************************************************************/
 int findKth(
     vector<int>& nums1, 

@@ -7,7 +7,16 @@
     "stack": "cpp",
     "iostream": "cpp",
     "__config": "cpp",
-    "iosfwd": "cpp"
+    "iosfwd": "cpp",
+    "__nullptr": "cpp",
+    "cstddef": "cpp",
+    "exception": "cpp",
+    "initializer_list": "cpp",
+    "new": "cpp",
+    "stdexcept": "cpp",
+    "type_traits": "cpp",
+    "typeinfo": "cpp",
+    "algorithm": "cpp"
   },
   "C_Cpp.errorSquiggles": "Disabled",
   "fileheader.LastModifiedBy": "Chacha",
