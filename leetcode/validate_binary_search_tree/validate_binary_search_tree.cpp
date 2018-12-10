@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-12-09 21:54:02 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-09 22:25:43
+ * @Last Modified time: 2018-12-09 22:33:56
  */
 
 /***********************************************************************************
@@ -42,7 +42,7 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
-int lastVal;
+int lastVal = INT_MIN;
 bool firstNode = true;
 
 // Preorder Traversal Ways
@@ -76,7 +76,7 @@ int validateHelper(TreeNode* root, int lower, int upper) {
     if (root == NULL) {
         return true;
     }
-    
+
     if (root->val <= lower || root->val >= upper) {
         bool right_max = root->val == INT_MAX && root->right == NULL;
         bool left_min = root->val == INT_MIN && root->left == NULL;

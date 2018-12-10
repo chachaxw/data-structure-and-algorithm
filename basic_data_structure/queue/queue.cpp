@@ -2,12 +2,19 @@
  * @Author: Chacha 
  * @Date: 2018-12-03 17:14:17 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-07 18:15:34
+ * @Last Modified time: 2018-12-10 22:10:26
  */
 
 #include<iostream>
 #include<vector>
 using namespace std;
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
 
 // Normal Queue
 class MyQueue {
@@ -203,6 +210,36 @@ public:
         return stack2.top();
     }
 };
+
+/**
+ * BFS - Template
+ * Return the length of the shortest path between root and target node.
+ * 
+ * 1. As shown in the code, in each round, the nodes in the queue are the nodes which are waiting to be processed.
+ * 2. After each outer while loop, we are one step farther from the root node. 
+ *    The variable step indicates the distance from the root node and the current node we are visiting.
+ */
+int BFS(TreeNode root, TreeNode target) {
+    queue<TreeNode> queue;  // store all nodes which are waiting to be processed
+    int step = 0;       // number of steps neeeded from root to current node
+    // initialize
+    add root to queue;
+    // BFS
+    while (queue is not empty) {
+        step = step + 1;
+        // iterate the nodes which are already in the queue
+        int size = queue.size();
+        for (int i = 0; i < size; ++i) {
+            Node cur = the first node in queue;
+            return step if cur is target;
+            for (Node next : the neighbors of cur) {
+                add next to queue;
+            }
+            remove the first node from queue;
+        }
+    }
+    return -1;          // there is no path from root to target
+}
 
 int main() {
     MyCircularQueue q(6);
