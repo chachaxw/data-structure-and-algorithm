@@ -1,6 +1,5 @@
 {
   "files.associations": {
-    "*.wpy": "vue",
     "unordered_map": "cpp",
     "vector": "cpp",
     "ostream": "cpp",

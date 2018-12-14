@@ -6,14 +6,16 @@ updating every day, just for learning how to improve coding skill. And I will al
 collect some good articles about data structure and algorithm.
 ```
 
-## 相关文章(Relative Articles)
+## 相关文献(Relative Articles)
 
 1. [维基百科算法大全](https://zh.wikipedia.org/wiki/Category:算法)
-2. [算法的时间与空间复杂度](https://shimo.im/docs/tMfuE8CWftQyEn1M/)
-3. [二叉树的遍历详解（前序中序后序层次-递归和非递归）](https://shimo.im/docs/MAbjWlrqWqU1f72m/)
-4. [视觉直观感受7种常用的排序算法](https://shimo.im/doc/8KWauxFPQUwhe5wI/)
-5. [素数生成算法](https://shimo.im/doc/j5MUwPfDObckzUHA/)
-6. [红-黑树](https://shimo.im/docs/IdtXEZbkUMQLV54a/)
+2. [维基百科数据结构大全](https://zh.wikipedia.org/wiki/Category:数据结构)
+3. [算法的时间与空间复杂度](https://shimo.im/docs/tMfuE8CWftQyEn1M/)
+4. [二叉树的遍历详解（前序中序后序层次-递归和非递归）](https://shimo.im/docs/MAbjWlrqWqU1f72m/)
+5. [视觉直观感受7种常用的排序算法](https://shimo.im/doc/8KWauxFPQUwhe5wI/)
+6. [素数生成算法](https://shimo.im/doc/j5MUwPfDObckzUHA/)
+7. [红-黑树](https://shimo.im/docs/IdtXEZbkUMQLV54a/)
+8. [堆(Heap)](https://shimo.im/docs/aH0fT9Z9trElZgsv)
 
 ## 排序算法(Sorting Algorithm)
 
@@ -27,6 +29,16 @@ collect some good articles about data structure and algorithm.
 8. [计数排序(Counting Sort)](https://zh.wikipedia.org/wiki/计数排序)
 9. [基数排序(Radix Sort)](https://zh.wikipedia.org/wiki/基数排序)
 10. [排序算法大全](https://zh.wikipedia.org/wiki/Category:排序算法)
+
+## 常用数据结构(Basic Data Structure)
+1. [链表(Linked List)](https://zh.wikipedia.org/wiki/链表)
+2. [二叉树(Binary Tree)](https://zh.wikipedia.org/wiki/二叉树)
+3. [霍夫曼编码(Huffman Coding)](https://zh.wikipedia.org/wiki/霍夫曼编码)
+4. [队列(Queue)](https://zh.wikipedia.org/wiki/队列)
+5. [栈(Stack)](https://zh.wikipedia.org/wiki/堆栈)
+6. [集合(Set)](https://zh.wikipedia.org/wiki/集合_(计算机科学))
+7. [哈希表(Map)](https://zh.wikipedia.org/wiki/哈希表)
+8. [堆(Heap)](https://zh.wikipedia.org/wiki/堆積)
 
 ## 学习工具(Learning Tools)
 
