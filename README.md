@@ -31,6 +31,7 @@ collect some good articles about data structure and algorithm.
 10. [排序算法大全](https://zh.wikipedia.org/wiki/Category:排序算法)
 
 ## 常用数据结构(Basic Data Structure)
+
 1. [链表(Linked List)](https://zh.wikipedia.org/wiki/链表)
 2. [二叉树(Binary Tree)](https://zh.wikipedia.org/wiki/二叉树)
 3. [霍夫曼编码(Huffman Coding)](https://zh.wikipedia.org/wiki/霍夫曼编码)
