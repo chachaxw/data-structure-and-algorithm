@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-12-16 21:53:13 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-16 23:03:38
+ * @Last Modified time: 2018-12-17 22:31:20
  */
 
 /***********************************************************************************
@@ -23,7 +23,7 @@
  * Note: next() and hasNext() should run in average O(1) time and 
  * uses O(h) memory, where h is the height of the tree.
  * 
- * Source: https://leetcode.com/explore/learn/card/introduction-to-data-structure-binary-search-tree/140
+ * Source: https://leetcode.com/problems/binary-search-tree-iterator/
 ************************************************************************************/
 
 #include <iostream>
@@ -48,6 +48,9 @@ private:
     TreeNode* curt;
 public:
     BSTIterator(TreeNode *root) {
+        while(!nStack.empty()) {
+            nStack.pop();
+        }
         curt = root;
     }
 
@@ -63,10 +66,11 @@ public:
             curt = curt->left;
         }
         
-        if (!nStack.empty()) {
-            TreeNode* node = nStack.top();
-            nStack.pop();
-            curt = curt->right;
-        }
+        curt = nStack.top();
+        nStack.pop();
+        int val = curt->val;
+        curt = curt->right;
+
+        return val;
     }
 }
