@@ -71,8 +71,8 @@ int maxDepthIterative(TreeNode* root) {
 }
 
 int main() {
-    int arr[] = {3,9,20,NULL,NULL,15,7};
-    const int maxDepth = maxDepthIterative(arr);
+    TreeNode node = {3,9,20,NULL,NULL,15,7};
+    const int maxDepth = maxDepthIterative(node);
 
     cout << "Max depth is " << maxDepth << endl;
 }
