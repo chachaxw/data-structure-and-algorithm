@@ -2,14 +2,12 @@
  * @Author: Chacha 
  * @Date: 2018-12-13 22:10:30 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-13 22:32:12
+ * @Last Modified time: 2018-12-20 22:01:21
  */
 
 /**
  * Bubble Sorting 
- * 
  * Source: https://zh.wikipedia.org/wiki/冒泡排序
- * 
  */
 
 #include <iostream>
