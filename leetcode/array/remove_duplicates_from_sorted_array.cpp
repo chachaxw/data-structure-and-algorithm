@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-12-22 21:22:26 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-22 22:44:48
+ * @Last Modified time: 2018-12-22 22:45:49
  */
 
 /***********************************************************************************
@@ -43,7 +43,7 @@ int removeDuplicates(vector<int> &nums) {
         }
     }
     
-    return newIndex;
+    return newIndex + 1;
 }
 
 void printVector(vector<int> &vec) {
@@ -57,8 +57,8 @@ int main() {
     int arr1[] = {0,0,1,1,1,1,2,3,3};
     vector<int> nums1(arr1, arr1 + sizeof(arr1)/sizeof(int));
 
-    removeDuplicates(nums1);
+    int result = removeDuplicates(nums1);
 
-    printVector(nums1);
+    cout << "Result is " << result << endl;
 }
 
