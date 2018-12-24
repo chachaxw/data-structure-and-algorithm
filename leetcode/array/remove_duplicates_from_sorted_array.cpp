@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-12-22 21:22:26 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-22 22:45:49
+ * @Last Modified time: 2018-12-24 23:11:59
  */
 
 /***********************************************************************************
@@ -28,9 +28,10 @@
 
 #include <iostream>
 #include <vector>
+#include <stdio.h>
 using namespace std;
 
-int removeDuplicates(vector<int> &nums) {
+int removeDuplicates1(vector<int>& nums) {
     if (nums.size() <= 2) return nums.size();
 
     int newIndex = 1;
@@ -46,19 +47,57 @@ int removeDuplicates(vector<int> &nums) {
     return newIndex + 1;
 }
 
-void printVector(vector<int> &vec) {
-    for(int i= 0; i < vec.size(); i++) {
-        printf("%3d", vec[i]);
+
+/***********************************************************************************
+ * Given a sorted array, remove the duplicates in place
+ * such that each element appear only once and return the new length.
+ * Given a sorted array, remove the duplicates in place
+ * such that each element appear only once and return the new length.
+ * For example, Given input array A = [1,1,2],
+ * Your function should return length = 2, and A is now [1,2].
+ * 
+ * Source: https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+************************************************************************************/
+int removeDuplicates2(vector<int>& nums) {
+    if (nums.size() <= 1) return nums.size();
+    
+    int index = 0;
+
+    for(int i = 1; i < nums.size(); i++) {
+        
+        if (nums[i] != nums[index]) {
+            index++;
+            nums[index] = nums[i];
+        }
+        
     }
-    cout << endl;
+
+    return index + 1;
 }
+
 
 int main() {
     int arr1[] = {0,0,1,1,1,1,2,3,3};
+    int arr2[] = {0,0,1,1,1,2,2,3,3,4};
     vector<int> nums1(arr1, arr1 + sizeof(arr1)/sizeof(int));
+    vector<int> nums2(arr2, arr2 + sizeof(arr2)/sizeof(int));
 
-    int result = removeDuplicates(nums1);
+    int result1 = removeDuplicates1(nums1);
+    int result2 = removeDuplicates2(nums2);
 
-    cout << "Result is " << result << endl;
+    cout << "Result1 is " << result1 << "\n";
+    cout << "Result2 is " << result2 << "\n";
+
+    for (int i = 0; i < nums1.size(); i++) {
+        printf("%3d", nums1[i]);
+    }
+
+    cout << "\n";
+
+    for (int i = 0; i < nums2.size(); i++) {
+        printf("%3d", nums2[i]);
+    }
+
+    cout << endl;
 }
 
