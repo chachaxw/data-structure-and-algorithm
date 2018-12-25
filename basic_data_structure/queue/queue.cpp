@@ -104,7 +104,7 @@ public:
         if (isEmpty()) {
             head = 0;
         }
-        
+
         tail = (tail + 1) % size;
         data[tail] = value;
         return true;

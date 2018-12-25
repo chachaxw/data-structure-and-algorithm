@@ -1,4 +1,4 @@
-# 算法与数据结构(Data Structure and Algorithm)
+# 数据结构与算法(Data Structure and Algorithm)
 
 ```bash
 This is a data structure and algorithm practice, most of code is C++, and I will keep
@@ -11,11 +11,12 @@ collect some good articles about data structure and algorithm.
 1. [维基百科算法大全](https://zh.wikipedia.org/wiki/Category:算法)
 2. [维基百科数据结构大全](https://zh.wikipedia.org/wiki/Category:数据结构)
 3. [算法的时间与空间复杂度](https://shimo.im/docs/tMfuE8CWftQyEn1M/)
-4. [二叉树的遍历详解（前序中序后序层次-递归和非递归）](https://shimo.im/docs/MAbjWlrqWqU1f72m/)
-5. [视觉直观感受7种常用的排序算法](https://shimo.im/doc/8KWauxFPQUwhe5wI/)
-6. [素数生成算法](https://shimo.im/doc/j5MUwPfDObckzUHA/)
-7. [红-黑树](https://shimo.im/docs/IdtXEZbkUMQLV54a/)
-8. [堆(Heap)](https://shimo.im/docs/aH0fT9Z9trElZgsv)
+4. [数据结构的基本知识总结](https://shimo.im/docs/w6lsN96M964doHUE/)
+5. [二叉树的遍历详解（前序中序后序层次-递归和非递归）](https://shimo.im/docs/MAbjWlrqWqU1f72m/)
+6. [视觉直观感受7种常用的排序算法](https://shimo.im/doc/8KWauxFPQUwhe5wI/)
+7. [素数生成算法](https://shimo.im/doc/j5MUwPfDObckzUHA/)
+8. [红-黑树](https://shimo.im/docs/IdtXEZbkUMQLV54a/)
+9. [堆(Heap)](https://shimo.im/docs/aH0fT9Z9trElZgsv)
 
 ## 排序算法(Sorting Algorithm)
 
@@ -40,12 +41,13 @@ collect some good articles about data structure and algorithm.
 6. [集合(Set)](https://zh.wikipedia.org/wiki/集合_(计算机科学))
 7. [哈希表(Map)](https://zh.wikipedia.org/wiki/哈希表)
 8. [堆(Heap)](https://zh.wikipedia.org/wiki/堆積)
+9. [图(Graph)](https://zh.wikipedia.org/wiki/图_(数学))
 
 ## 学习工具(Learning Tools)
 
 1. [LeetCode](https://leetcode.com)
 2. [领扣中国](https://leetcode-cn.com)
-3. [C++ 教程](http://www.runoob.com/cplusplus/cpp-tutorial.html)
+3. [C++教程](http://www.runoob.com/cplusplus/cpp-tutorial.html)
 4. [看云数据结构与算法/leetcode/lintcode](https://www.kancloud.cn/kancloud/data-structure-and-algorithm-notes)
 5. [可视化算法Algorithm Visualizer](http://algorithm-visualizer.org)
 6. [旧金山大学数据结构和算法的可视化学习工具](https://www.cs.usfca.edu/~galles/visualization/source.html)
