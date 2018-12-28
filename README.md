@@ -1,4 +1,4 @@
-# 数据结构与算法(Data Structure and Algorithm)
+# 🆒 数据结构与算法(Data Structure and Algorithm)
 
 ```bash
 This is a data structure and algorithm practice, most of code is C++, and I will keep
@@ -6,8 +6,8 @@ updating every day, just for learning how to improve coding skill. And I will al
 collect some good articles about data structure and algorithm.
 ```
 
-## 相关文献(Relative Articles)
-
+## 🔗 相关文献(Relative Articles)
+
 1. [维基百科算法大全](https://zh.wikipedia.org/wiki/Category:算法)
 2. [维基百科数据结构大全](https://zh.wikipedia.org/wiki/Category:数据结构)
 3. [算法的时间与空间复杂度](https://shimo.im/docs/tMfuE8CWftQyEn1M/)
@@ -18,7 +18,7 @@ collect some good articles about data structure and algorithm.
 8. [红-黑树](https://shimo.im/docs/IdtXEZbkUMQLV54a/)
 9. [堆(Heap)](https://shimo.im/docs/aH0fT9Z9trElZgsv)
 
-## 排序算法(Sorting Algorithm)
+## 🙉 排序算法(Sorting Algorithm)
 
 1. [冒泡排序(Bubble Sort)](https://zh.wikipedia.org/wiki/冒泡排序)
 2. [选择排序(Selection Sort)](https://zh.wikipedia.org/wiki/选择排序)
@@ -31,7 +31,7 @@ collect some good articles about data structure and algorithm.
 9. [基数排序(Radix Sort)](https://zh.wikipedia.org/wiki/基数排序)
 10. [排序算法大全](https://zh.wikipedia.org/wiki/Category:排序算法)
 
-## 常用数据结构(Basic Data Structure)
+## 💪 常用数据结构(Basic Data Structure)
 
 1. [链表(Linked List)](https://zh.wikipedia.org/wiki/链表)
 2. [二叉树(Binary Tree)](https://zh.wikipedia.org/wiki/二叉树)
@@ -43,7 +43,7 @@ collect some good articles about data structure and algorithm.
 8. [堆(Heap)](https://zh.wikipedia.org/wiki/堆積)
 9. [图(Graph)](https://zh.wikipedia.org/wiki/图_(数学))
 
-## 学习工具(Learning Tools)
+## 🔭 学习工具(Learning Tools)
 
 1. [LeetCode](https://leetcode.com)
 2. [领扣中国](https://leetcode-cn.com)
@@ -54,7 +54,7 @@ collect some good articles about data structure and algorithm.
 7. [可视化排序算法Sorting](http://sorting.at/)
 8. [动画学习算法和数据结构VisulaGo](https://visualgo.net/en)
 
-## LeetCode标签(LeetCode Tags)
+## 🏷️ LeetCode标签(LeetCode Tags)
 
 1. [数组](https://leetcode-cn.com/tag/array/)
 2. [动态规划](https://leetcode-cn.com/tag/dynamic-programming/)
