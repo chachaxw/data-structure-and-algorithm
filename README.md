@@ -53,6 +53,7 @@ collect some good articles about data structure and algorithm.
 6. [旧金山大学数据结构和算法的可视化学习工具](https://www.cs.usfca.edu/~galles/visualization/source.html)
 7. [可视化排序算法Sorting](http://sorting.at/)
 8. [动画学习算法和数据结构VisulaGo](https://visualgo.net/en)
+9. [普林斯顿大学经典算法教材](https://algs4.cs.princeton.edu/home/)
 
 ## 🏷️ LeetCode标签(LeetCode Tags)
 
