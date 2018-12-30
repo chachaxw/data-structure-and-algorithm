@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-12-27 23:20:14 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-27 23:34:01
+ * @Last Modified time: 2018-12-28 18:14:08
  */
 
 #include <iostream>
@@ -32,7 +32,9 @@ using namespace std;
 ************************************************************************************/
 
 int removeElement(vector<int> &nums, int val) {
+
     vector<int>::iterator iter = nums.begin();
+
     for(; iter < nums.end(); ++iter) {
         if (*iter == val) {
             iter = nums.erase(iter);
