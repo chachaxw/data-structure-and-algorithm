@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-12-22 21:22:26 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-24 23:11:59
+ * @Last Modified time: 2018-12-30 13:07:24
  */
 
 /***********************************************************************************
@@ -43,7 +43,7 @@ int removeDuplicates1(vector<int>& nums) {
             nums[newIndex] = nums[i];
         }
     }
-    
+
     return newIndex + 1;
 }
 
