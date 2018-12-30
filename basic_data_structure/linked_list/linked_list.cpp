@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-12-30 13:12:05 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-30 15:22:33
+ * @Last Modified time: 2018-12-30 17:00:28
  */
 
 #include<iostream>
@@ -29,4 +29,4 @@ struct ListNodeA {
         this->val = val;
         this->next = NULL;
     }
-}
+};
