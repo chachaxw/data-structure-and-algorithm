@@ -1,4 +1,4 @@
-# 🆒 数据结构与算法(Data Structure and Algorithm)
+# 🆒 数据结构与算法(Data Structure and Algorithm)
 
 ```bash
 This is a data structure and algorithm practice, most of code is C++, and I will keep
@@ -7,8 +7,8 @@ collect some good articles about data structure and algorithm.
 ```
 
 ## 🔗 相关文献(Relative Articles)
-
-1. [维基百科算法大全](https://zh.wikipedia.org/wiki/Category:算法)
+
+1. [维基百科算法大全](https://zh.wikipedia.org/wiki/Category:算法)
 2. [维基百科数据结构大全](https://zh.wikipedia.org/wiki/Category:数据结构)
 3. [算法的时间与空间复杂度](https://shimo.im/docs/tMfuE8CWftQyEn1M/)
 4. [数据结构的基本知识总结](https://shimo.im/docs/w6lsN96M964doHUE/)
@@ -18,7 +18,7 @@ collect some good articles about data structure and algorithm.
 8. [红-黑树](https://shimo.im/docs/IdtXEZbkUMQLV54a/)
 9. [堆(Heap)](https://shimo.im/docs/aH0fT9Z9trElZgsv)
 
-## 🙉 排序算法(Sorting Algorithm)
+## 🙉 排序算法(Sorting Algorithm)
 
 1. [冒泡排序(Bubble Sort)](https://zh.wikipedia.org/wiki/冒泡排序)
 2. [选择排序(Selection Sort)](https://zh.wikipedia.org/wiki/选择排序)
@@ -31,7 +31,7 @@ collect some good articles about data structure and algorithm.
 9. [基数排序(Radix Sort)](https://zh.wikipedia.org/wiki/基数排序)
 10. [排序算法大全](https://zh.wikipedia.org/wiki/Category:排序算法)
 
-## 💪 常用数据结构(Basic Data Structure)
+## 💪 常用数据结构(Basic Data Structure)
 
 1. [链表(Linked List)](https://zh.wikipedia.org/wiki/链表)
 2. [二叉树(Binary Tree)](https://zh.wikipedia.org/wiki/二叉树)
@@ -49,7 +49,7 @@ collect some good articles about data structure and algorithm.
 2. [领扣中国](https://leetcode-cn.com)
 3. [C++教程](http://www.runoob.com/cplusplus/cpp-tutorial.html)
 4. [看云数据结构与算法/leetcode/lintcode](https://www.kancloud.cn/kancloud/data-structure-and-algorithm-notes)
-5. [可视化算法Algorithm Visualizer](http://algorithm-visualizer.org)
+5. [可视化算法Algorithm Visualizer](http://algorithm-visualizer.org)
 6. [旧金山大学数据结构和算法的可视化学习工具](https://www.cs.usfca.edu/~galles/visualization/source.html)
 7. [可视化排序算法Sorting](http://sorting.at/)
 8. [动画学习算法和数据结构VisulaGo](https://visualgo.net/en)
@@ -63,7 +63,7 @@ collect some good articles about data structure and algorithm.
 4. [数学](https://leetcode-cn.com/tag/math/)
 5. [树](https://leetcode-cn.com/tag/tree/)
 6. [哈希表](https://leetcode-cn.com/tag/hash-table/)
-7. [深度优先搜素](https://leetcode-cn.com/tag/depth-first-search/)
+7. [深度优先搜素](https://leetcode-cn.com/tag/depth-first-search/)
 8. [二分查找](https://leetcode-cn.com/tag/binary-search/)
 9. [双指针](https://leetcode-cn.com/tag/two-pointers/)
 10. [广度优先搜索](https://leetcode-cn.com/tag/breadth-first-search/)
@@ -78,7 +78,7 @@ collect some good articles about data structure and algorithm.
 19. [排序](https://leetcode-cn.com/tag/sort/)
 20. [分治算法](https://leetcode-cn.com/tag/divide-and-conquer/)
 21. [并查集](https://leetcode-cn.com/tag/union-find/)
-22. [二叉搜索树](https://leetcode-cn.com/tag/binary-search-tree/)
+22. [二叉搜索树](https://leetcode-cn.com/tag/binary-search-tree/)
 23. [字典树](https://leetcode-cn.com/tag/trie/)
 24. [递归](https://leetcode-cn.com/tag/recursion/)
 25. [队列](https://leetcode-cn.com/tag/queue/)
