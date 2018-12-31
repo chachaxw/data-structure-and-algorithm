@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-12-30 17:45:36 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-30 19:04:14
+ * @Last Modified time: 2018-12-31 22:58:15
  */
 
 #include<iostream>
@@ -86,10 +86,39 @@ public:
                 node = node->next;
             }
         }
-        
+
         return dummy->next;
     }
 
+    /**
+     * Write a removeDuplicates() function which takes a list and deletes any 
+     * duplicate nodes from the list. The list is not sorted.
+     * 
+     * Example 1:
+     *  Input: 12->11->12->21->41->43->21
+     *  Output: 12->11->21->41->43
+     * 
+     * Source: https://www.geeksforgeeks.org/remove-duplicates-from-an-unsorted-linked-list/
+     */
+    ListNode* deleteDuplicates3(ListNode* head) {
+        if (head == NULL) return NULL;
+
+        ListNode* curr = head;
+        while (curr != NULL) {
+            ListNode* inner = curr;
+            
+            while(inner->next != NULL){
+                if (inner->next->val == curr->val) {
+                    inner->next = inner->next->next;
+                } else {
+                    inner = inner->next;
+                }
+            }
+            curr = curr->next;
+        }
+
+        return head;
+    }
 };
 
 int main() {
