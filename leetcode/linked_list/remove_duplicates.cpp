@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-12-30 17:45:36 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-31 22:58:15
+ * @Last Modified time: 2018-12-31 23:25:49
  */
 
 #include<iostream>
@@ -91,7 +91,7 @@ public:
     }
 
     /**
-     * Write a removeDuplicates() function which takes a list and deletes any 
+     * Write a deleteDuplicates() function which takes a list and deletes any 
      * duplicate nodes from the list. The list is not sorted.
      * 
      * Example 1:
@@ -120,6 +120,14 @@ public:
         return head;
     }
 };
+
+/* Function to print nodes in a given linked list */
+void printList(struct ListNode *node) { 
+    while (node != NULL) { 
+        printf("%d ", node->val); 
+        node = node->next; 
+    }
+} 
 
 int main() {
     return 0;
