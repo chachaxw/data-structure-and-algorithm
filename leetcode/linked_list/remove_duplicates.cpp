@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-12-30 17:45:36 
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-31 23:25:49
+ * @Last Modified time: 2019-01-01 18:26:34
  */
 
 #include<iostream>
@@ -98,6 +98,10 @@ public:
      *  Input: 12->11->12->21->41->43->21
      *  Output: 12->11->21->41->43
      * 
+     * Note: 
+     *  This is the simple way where two loops are used. 
+     *  Outer loop is used to pick the elements one by one
+     *  and inner loop compares the picked element with rest of the elements.
      * Source: https://www.geeksforgeeks.org/remove-duplicates-from-an-unsorted-linked-list/
      */
     ListNode* deleteDuplicates3(ListNode* head) {
