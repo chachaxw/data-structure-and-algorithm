@@ -9,7 +9,7 @@
 using namespace std;
 
 /** 
- * Struct Definition for singly-linked list(单向链表)
+ * Struct definition for singly-linked list(单向链表)
  * Source: https://zh.wikipedia.org/wiki/链表
  */
 struct ListNodeA {
@@ -19,7 +19,7 @@ struct ListNodeA {
 };
 
 /**
- * Class Definition for singly-linked list(单向链表)
+ * Class definition for singly-linked list(单向链表)
  */
  class ListNodeB {
  public:
@@ -30,3 +30,16 @@ struct ListNodeA {
         this->next = NULL;
     }
 };
+
+/**
+ * Class definition for doubly-linked list(双向链表)
+ */
+class DListNode() {
+public:
+    int val;
+    DListNode prev, next;
+    DListNode(int val) {
+        this.val = val;
+        this.prev = this.next = NULL;
+    }
+}
