@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-12-29 23:03:23 
  * @Last Modified by: Chacha
- * @Last Modified time: 2019-01-01 21:25:38
+ * @Last Modified time: 2019-01-12 22:18:21
  */
 
 #include <iostream>
@@ -30,10 +30,68 @@ using namespace std;
 //     }
 // }
 
-int quickSort(vector<int> &nums) {
+// In-place recursive way1
+template <typename T>
+void quickSortRecursive1(T nums[], int start, int end) {
     
+    if (start >= end) return;
+
+    T mid = nums[end];
+    int left = start, right = end -1;
+
+    while(left < right) {
+        
+        while(nums[left] < mid && left < right)
+            left++;
+        
+        while(nums[right] >= mid && left < right)
+            right--;
+        
+        swap(nums[left], nums[right]);
+    }
+
+    if (nums[left] >= nums[end]) {
+        swap(nums[left], nums[end]);
+    } else {
+        left++;
+    }
+    
+    quickSortRecursive1(nums, start, left - 1);
+    quickSortRecursive1(nums, left + 1, end);
+}
+
+// In-place recursive way2
+template <typename T>
+void quickSortRecursive2(T nums[], int start, int end) {
+
+    if (start >= end) return;
+
+    T mid = start;
+    
+    for(int i = start + 1; i <= end ; i++) {
+        if (nums[i] < nums[start]) {
+            mid++;
+            swap(nums[mid], nums[i]);
+        }
+    }
+
+    // Swap between nums[mid] and nums[i], put pivot in the mid
+    swap(nums[mid], nums[start]);
+
+    quickSortRecursive2(nums, start, mid - 1);
+    quickSortRecursive2(nums, mid + 1, end);
 }
 
 int main() {
+    int nums[] = {9,8,7,6,5,4,3,2,1,0};
+    int len = sizeof(nums)/sizeof(int);
+
+    // quickSortRecursive1(nums, 0, len - 1);
+    quickSortRecursive2(nums, 0, len - 1);
+
+    for(int i = 0; i < len; i++) {
+        printf("%d ", nums[i]);
+    }
+
     return 0;
 }

@@ -20,7 +20,7 @@ void insertionSort(T arr[], int len) {
         int key = arr[i];
         int j = i - 1;
         
-        while((j >= 0) && (key < arr[j])){
+        while(j >= 0 && key < arr[j]){
             arr[j + 1] = arr[j];
             j--;
         }
@@ -29,7 +29,7 @@ void insertionSort(T arr[], int len) {
 }
 
 /**
- * Shell Sorting 
+ * Shell Sorting
  * Source: https://zh.wikipedia.org/wiki/希尔排序
  */
 template<typename T>

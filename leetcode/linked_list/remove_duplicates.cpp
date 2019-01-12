@@ -128,7 +128,7 @@ public:
 /* Function to print nodes in a given linked list */
 void printList(struct ListNode *node) { 
     while (node != NULL) { 
-        printf("%d ", node->val); 
+        printf("%d ", node->val);
         node = node->next; 
     }
 } 
