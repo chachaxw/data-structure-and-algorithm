@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2019-01-12 17:12:07 
  * @Last Modified by: Chacha
- * @Last Modified time: 2019-01-12 17:18:26
+ * @Last Modified time: 2019-01-13 09:42:39
  */
 
 #include<iostream>
@@ -32,10 +32,49 @@ public:
      *  Output: -1->0->3->4->5
      * 
      * Source: https://leetcode.com/problems/sort-list/
+     *         https://www.kancloud.cn/kancloud/data-structure-and-algorithm-notes/73017
      * 
      */ 
     ListNode* sortList(ListNode* head) {
-        return head;
+        if (head == NULL || head->next == NULL)
+            return head;
+        
+        ListNode* slow = head;
+        ListNode* fast= head->next;
+
+        while (fast != NULL && fast->next != NULL) {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+
+        // divide the list into two parts 
+        fast = slow->next;
+        slow->next = NULL;
+        
+        return merge(sortList(head), sortList(fast));
+    }
+
+    // Merge sort
+    ListNode* merge(ListNode* l1, ListNode* l2) {
+        
+        ListNode dummy(0);
+        ListNode* curr = &dummy;
+
+        while(l1 != NULL && l2 != NULL) {
+            if (l1->val < l2->val) {
+                curr->next = l1;
+                l1 = l1->next;
+            } else {
+                curr->next = l2;
+                l2 = l2->next;
+            }
+
+            curr = curr->next;
+        }
+        
+        curr->next = (l1 != NULL) ? l1 : l2;
+
+        return dummy.next;
     }
 };
 

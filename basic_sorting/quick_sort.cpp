@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2018-12-29 23:03:23 
  * @Last Modified by: Chacha
- * @Last Modified time: 2019-01-12 22:18:21
+ * @Last Modified time: 2019-01-13 08:46:13
  */
 
 #include <iostream>
@@ -13,6 +13,11 @@ using namespace std;
  * Source:
  *  https://zh.wikipedia.org/wiki/快速排序
  *  https://algs4.cs.princeton.edu/23quicksort/
+ * 
+ * The solution:
+ *  1. Find a pivot element x;
+ *  2. Partition();
+ *  3. Recursive previous two steps
  */
 
 // Pseudocode
