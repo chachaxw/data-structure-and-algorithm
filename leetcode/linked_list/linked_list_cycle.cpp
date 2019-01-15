@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2019-01-14 15:24:40 
  * @Last Modified by: Chacha
- * @Last Modified time: 2019-01-14 15:37:33
+ * @Last Modified time: 2019-01-15 18:07:56
  */
 
 
@@ -41,6 +41,37 @@ public:
         }
 
         return false;
+    }
+    
+    /**
+     * Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
+     * 
+     * Example:
+     *  Given -21->10->4->5, tail connects to node index 1，return node 10
+     * 
+     * Source: 
+     */ 
+    ListNode* detectCycle(ListNode* head) {
+        if (head == NULL || head->next == NULL) return NULL;
+
+        ListNode* slow = head;
+        ListNode* fast = head;
+
+        while (fast != NULL && fast->next != NULL) {
+            fast = fast->next->next;
+            slow = slow->next;
+
+            if (slow == fast) {
+                fast = head;
+                while (slow != fast) {
+                    fast = fast->next;
+                    slow = slow->next;
+                }
+                return slow;
+            };
+        }
+
+        return NULL;
     }
 };
 
