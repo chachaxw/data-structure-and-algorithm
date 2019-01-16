@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2019-01-12 17:12:07 
  * @Last Modified by: Chacha
- * @Last Modified time: 2019-01-13 09:42:39
+ * @Last Modified time: 2019-01-16 18:28:41
  */
 
 #include<iostream>
@@ -76,6 +76,26 @@ public:
 
         return dummy.next;
     }
+
+    // Insertion sort list
+    ListNode* insertionSortList(ListNode* head) {
+        ListNode* dummy = new ListNode(0);
+        ListNode* curr = head;
+
+        while (curr != NULL) {
+            ListNode* prev = dummy;
+
+            while(prev->next != NULL && prev->next->val < curr->val) {
+                prev = prev->next;
+            }
+            ListNode* temp = curr->next;
+            curr->next = prev->next;
+            prev->next = curr;
+            curr = temp;
+        }
+
+        return dummy->next;
+    }
 };
 
 /* Function to print nodes in a given linked list */
@@ -87,5 +107,15 @@ void printList(struct ListNode *node) {
 }
 
 int main() {
+    ListNode* head = new ListNode(1);
+    head->next = new ListNode(3);
+    head->next->next = new ListNode(2);
+    head->next->next->next = new ListNode(0);
+
+    // ListNode* result = Solution().sortList(head);
+    ListNode* result = Solution().insertionSortList(head);
+
+    printList(result);
+
     return 0;
 }
