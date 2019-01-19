@@ -29,6 +29,8 @@ public:
      * 
      * Example: 
      *  Given 1->2->3->4->null, reorder it to 1->4->2->3->null.
+     * 
+     * Source: https://www.kancloud.cn/kancloud/data-structure-and-algorithm-notes/73015
      */
     void reorderList(ListNode* head) {
         if (head == NULL || head->next == NULL || head->next->next == NULL) {
@@ -41,10 +43,43 @@ public:
             last = last->next;
             ++length;
         }
-        
+
+        last = head;
+
+        for(int i = 1; i < length - i; ++i) {
+            ListNode* beforeTail = last;
+            
+            for(int j = i; j < length - i; ++j) {
+                beforeTail = beforeTail->next;
+            }
+
+            ListNode* temp = last->next;
+            last->next = beforeTail->next;
+            last->next->next = temp;
+            beforeTail->next = NULL;
+            last = temp;
+        }
     }
 };
 
+/* Function to print nodes in a given linked list */
+void printList(ListNode *node) { 
+    while (node != NULL) { 
+        printf("%d ", node->val); 
+        node = node->next; 
+    }
+}
+
 int main() {
+    ListNode* head = new ListNode(1);
+    head->next = new ListNode(2);
+    head->next->next = new ListNode(3);
+    head->next->next->next = new ListNode(4);
+    head->next->next->next->next = new ListNode(5);
+    head->next->next->next->next->next = new ListNode(6);
+
+    Solution().reorderList(head);
+    printList(head);
+
     return 0;
 }
