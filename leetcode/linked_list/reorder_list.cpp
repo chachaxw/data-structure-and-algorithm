@@ -32,7 +32,7 @@ public:
      * 
      * Source: https://www.kancloud.cn/kancloud/data-structure-and-algorithm-notes/73015
      */
-    void reorderList(ListNode* head) {
+    void reorderList1(ListNode* head) {
         if (head == NULL || head->next == NULL || head->next->next == NULL) {
             return;
         }
@@ -60,6 +60,58 @@ public:
             last = temp;
         }
     }
+
+    void reorderList2(ListNode* head) {
+        if (head == NULL || head->next == NULL || head->next->next) return;
+
+        ListNode* middle = findMiddle(head);
+        ListNode* right = reverse(middle->next);
+        middle->next = NULL;
+
+        merge(head, right);
+    }
+
+    void merge(ListNode* left, ListNode* right) {
+        ListNode* dummy = new ListNode(0);
+
+        while(left != NULL && right != NULL){
+            dummy->next = left;
+            left = left->next;
+            dummy = dummy->next;
+            dummy->next = right;
+            right = right->next;
+            dummy = dummy->next;
+        }
+
+        dummy->next = left != NULL ? left : right;
+    }
+
+    ListNode* reverse(ListNode* head) {
+        ListNode* newHead = NULL;
+        
+        while(head != NULL){
+            ListNode* temp = head->next;
+            head->next = newHead;
+            newHead = head;
+            head = temp;
+        }
+
+        return newHead;
+    }
+
+    ListNode* findMiddle(ListNode* head) {
+        if (head == NULL || head->next == NULL) {
+            return head;
+        }
+
+        ListNode *slow = head, *fast = head->next;
+        while (slow != NULL && fast != NULL) {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+
+        return slow;
+    }
 };
 
 /* Function to print nodes in a given linked list */
@@ -78,7 +130,7 @@ int main() {
     head->next->next->next->next = new ListNode(5);
     head->next->next->next->next->next = new ListNode(6);
 
-    Solution().reorderList(head);
+    Solution().reorderList2(head);
     printList(head);
 
     return 0;
