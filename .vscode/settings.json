@@ -1,6 +1,5 @@
 {
   "files.associations": {
-    "*.wpy": "vue",
     "unordered_map": "cpp",
     "vector": "cpp",
     "ostream": "cpp",
@@ -17,7 +16,8 @@
     "type_traits": "cpp",
     "typeinfo": "cpp",
     "algorithm": "cpp",
-    "string": "cpp"
+    "string": "cpp",
+    "deque": "cpp"
   },
   "C_Cpp.errorSquiggles": "Disabled",
   "fileheader.LastModifiedBy": "Chacha",

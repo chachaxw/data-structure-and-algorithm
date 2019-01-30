@@ -10,6 +10,7 @@
 #include <iostream>
 #include <vector>
 #include <stack>
+#include <deque>
 using namespace std;
 
 /**
@@ -315,6 +316,67 @@ int PrintLevel2(TreeNode* root, int n, int level) {
         return PrintLevel2(root->left, n, level - 1) + PrintLevel2(root->right, n, level - 1);
     }
 
+}
+
+/**
+ * Iterative Way 1
+ * Use two queues, one queue for current level nodes and another for next level nodes
+ */ 
+void LevelOrderDev(TreeNode* root) {
+    deque<TreeNode *> qFirst, qSecond;
+    qFirst.push_back(root);
+
+    while(qFirst.empty() != true){
+        while(qFirst.empty() != true) {
+            TreeNode* temp = qFirst.front();
+            qFirst.pop_front();
+
+            cout << temp->val;
+
+            if (temp->left != NULL) {
+                qSecond.push_back(temp->left);
+            }
+
+            if (temp->right != NULL) {
+                qSecond.push_back(temp->right);
+            }
+        }
+        cout << endl;
+        qFirst.swap(qSecond);
+    }
+
+}
+
+/**
+ * Iterative Way 1
+ * Use two pointers, one pointer for current level nodes and another for next level nodes
+ */
+void LevelOrderUsePoint(TreeNode* root) {
+    vector<TreeNode*> vec;
+    vec.push_back(root);
+
+    int cur = 0;
+    int end = 1;
+
+    while(cur < vec.size()){
+        end = vec.size();
+
+        while(cur < end){
+            cout << vec[cur]->val;
+
+            if (vec[cur]->left != NULL) {
+                vec.push_back(vec[cur]->left);
+            }
+
+            if (vec[cur]->right != NULL) {
+                vec.push_back(vec[cur]->right);
+            }
+            
+            cur++;
+        }
+        cout << endl;
+    }
+    
 }
 
 int main() {
