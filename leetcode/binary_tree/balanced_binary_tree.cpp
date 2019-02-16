@@ -2,7 +2,7 @@
  * @Author: Chacha 
  * @Date: 2019-01-03 17:07:54 
  * @Last Modified by: Chacha
- * @Last Modified time: 2019-01-03 18:01:39
+ * @Last Modified time: 2019-02-15 15:12:59
  */
 
 #include<iostream>
@@ -57,7 +57,7 @@ private:
 
         return max(leftDepth, rightDepth) + 1;
     }
-}
+};
 
 int main() {
     return 0;

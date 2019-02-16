@@ -28,8 +28,12 @@ public:
      *
      * Example:
      *  Given two lists, 3->1->5->null and 5->9->2->null, return 8->0->8->null
+     * 
+     * Source:
+     *  https://www.lintcode.com/en/problem/two-lists-sum/
+     *  https://www.kancloud.cn/kancloud/data-structure-and-algorithm-notes/73006
      */
-    ListNode* twoListsSum(ListNode* l1, ListNode* l2) {
+    ListNode* twoListsSum1(ListNode* l1, ListNode* l2) {
         if (l1 == NULL && l2 == NULL) {
             return NULL;
         }
@@ -59,6 +63,21 @@ public:
         
         return sumList;
     }
+
+    /**
+     * Given two numbers represented by two linked lists, write a function that returns sum list.
+     * The sum list is linked list representation of addition of two input numbers.
+     * 
+     * Example:
+     *  Input:
+     *      First  List: 5->6->3  // represents number 563
+     *      Second List: 8->4->2  // represents number 842
+     *  Output:
+     *      Resultant list: 1->4->0->5  // represents number 1405
+     */
+    ListNode* twoListsSum2(ListNode* l1, ListNode* l2) {
+        
+    }
 };
 
 /* Function to print nodes in a given linked list */
@@ -79,7 +98,7 @@ int main()
     l2->next = new ListNode(9);
     l2->next->next = new ListNode(2);
 
-    ListNode* sum = Solution().twoListsSum(l1, l2);
+    ListNode* sum = Solution().twoListsSum1(l1, l2);
 
     printList(sum);
 
