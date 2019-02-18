@@ -2,11 +2,12 @@
  * @Author: Chacha 
  * @Date: 2019-01-06 22:50:09 
  * @Last Modified by: Chacha
- * @Last Modified time: 2019-01-06 23:13:13
+ * @Last Modified time: 2019-02-18 22:11:29
  */
 
 #include<iostream>
 #include<string>
+#include<vector>
 using namespace std;
 
 /** 
@@ -58,6 +59,67 @@ public:
 
         lastNode->next = (l1 != NULL) ? l1 : l2;
         return dummy->next;
+    }
+
+    /**
+     * Merge k sorted linked lists and return it as one sorted list.
+     * 
+     * Source:
+     *  https://leetcode.com/problems/merge-k-sorted-lists/
+     *  https://leetcode.com/problems/merge-k-sorted-lists/solution/
+     *  https://www.kancloud.cn/kancloud/data-structure-and-algorithm-notes/73014#
+     * 
+     * 
+     * Solution 1
+     * @param lists: a list of ListNode
+     * @return: The head of one sorted list.
+     */
+    ListNode* mergeKLists1(vector<ListNode *> &lists) {
+        if (lists.empty()) return NULL;
+
+        ListNode* dummy = new ListNode(INT_MAX);
+        ListNode* lastNode = dummy;
+        
+        while(true) {
+            int count = 0;
+            int index = -1, tempVal = INT_MAX;
+
+            for(int i = 0; i != lists.size(); ++i) {
+                if (lists[i] == NULL) {
+                    ++count;
+
+                    if (count == lists.size()) {
+                        lastNode->next = NULL;
+                        return dummy->next;
+                    }
+                    continue;
+                }
+                
+                // choose the min value in non-NULL ListNode
+                if (lists[i] != NULL  && lists[i]->val <= tempVal) {
+                    tempVal = lists[i]->val;
+                    index = i;
+                }
+            }
+            
+            lastNode->next = lists[index];
+            lastNode = lastNode->next;
+            lists[index] = lists[index]->next;
+        }
+    }
+
+    /**
+     * Solution 2
+     */
+    ListNode* mergeKLists2(vector<ListNode *> &lists) {
+        if (lists.empty()) return NULL;
+
+        ListNode* head = lists[0];
+        for(int i = 1; i != lists.size(); ++i) {
+            head = mergeTwoLists(head, lists[i]);
+        }
+
+        return head;
     }
 };
 
