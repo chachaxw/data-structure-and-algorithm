@@ -6,6 +6,11 @@ updating every day, just for learning how to improve coding skill. And I will al
 collect some good articles about data structure and algorithm.
 ```
 
+![Github Issues](https://img.shields.io/github/issues/chachaxw/data-structure-and-algorithm)
+![Github Forks](https://img.shields.io/github/forks/chachaxw/data-structure-and-algorithm)
+![Github Stars](https://img.shields.io/github/stars/chachaxw/data-structure-and-algorithm)
+![Github License](https://img.shields.io/github/license/chachaxw/data-structure-and-algorithm)
+
 ## 🔗 相关文献(Relative Articles)
 
 1. [维基百科算法大全](https://zh.wikipedia.org/wiki/Category:算法)
