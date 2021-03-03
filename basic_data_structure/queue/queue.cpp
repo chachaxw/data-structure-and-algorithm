@@ -1,6 +1,6 @@
 /**
- * @Author: Chacha 
- * @Date: 2018-12-03 17:14:17 
+ * @Author: Chacha
+ * @Date: 2018-12-03 17:14:17
  * @Last Modified by: Chacha
  * @Last Modified time: 2018-12-12 21:50:07
  */
@@ -21,16 +21,21 @@ struct TreeNode {
 class MyQueue {
     private:
         // store elements
-        vector<int> data;       
+        vector<int> data;
         // a pointer to indicate the start position
-        int p_start;            
+        int p_start;
+
     public:
-        MyQueue() {p_start = 0;}
+        MyQueue() {
+            p_start = 0;
+        }
+
         /** Insert an element into the queue. Return true if the operation is successful. */
         bool enQueue(int x) {
             data.push_back(x);
             return true;
         }
+
         /** Delete an element from the queue. Return true if the operation is successful. */
         bool deQueue() {
             if (isEmpty()) {
@@ -39,10 +44,12 @@ class MyQueue {
             p_start++;
             return true;
         };
+
         /** Get the front item from the queue. */
         int Front() {
             return data[p_start];
         };
+
         /** Checks whether the queue is empty or not. */
         bool isEmpty()  {
             return p_start >= data.size();
@@ -50,21 +57,21 @@ class MyQueue {
 };
 
 /***********************************************************************************
- * Design your implementation of the circular queue. 
- * The circular queue is a linear data structure in which the operations 
- * are performed based on FIFO (First In First Out) principle and 
- * the last position is connected back to the first position to make a circle. 
+ * Design your implementation of the circular queue.
+ * The circular queue is a linear data structure in which the operations
+ * are performed based on FIFO (First In First Out) principle and
+ * the last position is connected back to the first position to make a circle.
  * It is also called "Ring Buffer".
  * Your implementation should support following operations:
  *  1. MyCircularQueue(k): Constructor, set the size of the queue to be k.
  *  2. Front: Get the front item from the queue. If the queue is empty, return -1.
  *  3. Rear: Get the last item from the queue. If the queue is empty, return -1.
- *  4. enQueue(value): Insert an element into the circular queue. 
+ *  4. enQueue(value): Insert an element into the circular queue.
  *     Return true if the operation is successful.
  *  5. deQueue(): Delete an element from the circular queue. Return true if the operation is successful.
  *  6. isEmpty(): Checks whether the circular queue is empty or not.
  *  7. isFull(): Checks whether the circular queue is full or not.
- *  
+ *
  * Example:
  *  MyCircularQueue circularQueue = new MyCircularQueue(3); // set the size to be 3
  *  circularQueue.enQueue(1);  // return true
@@ -76,7 +83,7 @@ class MyQueue {
  *  circularQueue.deQueue();  // return true
  *  circularQueue.enQueue(4);  // return true
  *  circularQueue.Rear();  // return 4
- * 
+ *
  * Source： https://leetcode-cn.com/explore/learn/card/queue-stack/216/queue-first-in-first-out-data-structure/865/
 ************************************************************************************/
 
@@ -95,7 +102,7 @@ public:
         tail = -1;
         size = k;
     }
-    
+
     /** Insert an element into the circular queue. Return true if the operation is successful. */
     bool enQueue(int value) {
         if (isFull()) {
@@ -109,23 +116,23 @@ public:
         data[tail] = value;
         return true;
     }
-    
+
     /** Delete an element from the circular queue. Return true if the operation is successful. */
     bool deQueue() {
         if (isEmpty()) {
             return false;
         }
-        
+
         if (head == tail) {
             head = -1;
             tail = -1;
             return true;
         }
-        
+
         head = (head + 1) % size;
         return true;
     }
-    
+
     /** Get the front item from the queue. */
     int Front() {
         if (isEmpty()) {
@@ -133,7 +140,7 @@ public:
         }
         return data[head];
     }
-    
+
     /** Get the last item from the queue. */
     int Rear() {
         if (isEmpty()) {
@@ -141,12 +148,12 @@ public:
         }
         return data[tail];
     }
-    
+
     /** Checks whether the circular queue is empty or not. */
     bool isEmpty() {
         return head == -1;
     }
-    
+
     /** Checks whether the circular queue is full or not. */
     bool isFull() {
         return ((tail + 1) % size) == head;
@@ -168,11 +175,11 @@ public:
 /**
  * Implement Queue by Two Stacks
  * As the title described, you should only use two stacks to implement a queue's actions.
- * The queue should support push(element), 
+ * The queue should support push(element),
  * pop() and top() where pop is pop the first(a.k.a front) element in the queue.
  * Both pop and top methods should return the value of first element.
  * LIFO + LIFO ==> FIFO
- * 
+ *
  * Example:
  *  For push(1), pop(), push(2), push(3), top(), pop(), you should return 1, 2 and 2
  */
@@ -189,7 +196,7 @@ public:
     void push(int element) {
         stack1.push(element);
     }
-    
+
     void adjust() {
         if (stack2.empty()) {
             while (!stack1.empty()) {
@@ -198,7 +205,7 @@ public:
             }
         }
     }
-    
+
     int pop() {
         adjust();
         int temp = stack2.top();
@@ -215,9 +222,9 @@ public:
 /**
  * BFS - Template 1
  * Return the length of the shortest path between root and target node.
- * 
+ *
  * 1. As shown in the code, in each round, the nodes in the queue are the nodes which are waiting to be processed.
- * 2. After each outer while loop, we are one step farther from the root node. 
+ * 2. After each outer while loop, we are one step farther from the root node.
  *    The variable step indicates the distance from the root node and the current node we are visiting.
  */
 int BFS(TreeNode root, TreeNode target) {
@@ -245,7 +252,7 @@ int BFS(TreeNode root, TreeNode target) {
 /**
  * BFS - Template 2
  * Return the length of the shortest path between root and target node.
- * 
+ *
  * There are two cases you don't need the hash set used:
  *  1. You are absolutely sure there is no cycle, for example, in tree traversal;
  *  2. You do want to add the node to the queue multiple times.

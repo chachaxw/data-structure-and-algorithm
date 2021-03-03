@@ -22,5 +22,8 @@
   "C_Cpp.errorSquiggles": "Disabled",
   "fileheader.LastModifiedBy": "Chacha",
   "fileheader.Author": "Chacha",
-  "editor.tabSize": 4
+  "editor.tabSize": 4,
+  "cSpell.words": [
+    "inorder"
+  ]
 }
