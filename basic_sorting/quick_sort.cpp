@@ -14,7 +14,8 @@ using namespace std;
  *  https://zh.wikipedia.org/wiki/快速排序
  *  https://algs4.cs.princeton.edu/23quicksort/
  *
- * Time Complexity(On ): O(n log n)
+ * Time Complexity: O(n log n) (the badest situation is O(n^2))
+ * Space Complexity: O (log n)
  *
  * The solution:
  *  1. Find a pivot element x;
