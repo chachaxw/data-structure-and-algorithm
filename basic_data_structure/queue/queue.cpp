@@ -2,58 +2,59 @@
  * @Author: Chacha
  * @Date: 2018-12-03 17:14:17
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-12 21:50:07
+ * @Last Modified time: 2021-03-05 19:14:35
  */
 
-#include<iostream>
-#include<vector>
-#include<queue>
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <stack>
 using namespace std;
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
-};
-
 // Normal Queue
-class MyQueue {
-    private:
-        // store elements
-        vector<int> data;
-        // a pointer to indicate the start position
-        int p_start;
+class MyQueue
+{
+private:
+    // store elements
+    vector<int> data;
+    // a pointer to indicate the start position
+    int p_start;
 
-    public:
-        MyQueue() {
-            p_start = 0;
+public:
+    MyQueue()
+    {
+        p_start = 0;
+    }
+
+    /** Insert an element into the queue. Return true if the operation is successful. */
+    bool enQueue(int x)
+    {
+        data.push_back(x);
+        return true;
+    }
+
+    /** Delete an element from the queue. Return true if the operation is successful. */
+    bool deQueue()
+    {
+        if (isEmpty())
+        {
+            return false;
         }
+        p_start++;
+        return true;
+    };
 
-        /** Insert an element into the queue. Return true if the operation is successful. */
-        bool enQueue(int x) {
-            data.push_back(x);
-            return true;
-        }
+    /** Get the front item from the queue. */
+    int Front()
+    {
+        return data[p_start];
+    };
 
-        /** Delete an element from the queue. Return true if the operation is successful. */
-        bool deQueue() {
-            if (isEmpty()) {
-                return false;
-            }
-            p_start++;
-            return true;
-        };
-
-        /** Get the front item from the queue. */
-        int Front() {
-            return data[p_start];
-        };
-
-        /** Checks whether the queue is empty or not. */
-        bool isEmpty()  {
-            return p_start >= data.size();
-        }
+    /** Checks whether the queue is empty or not. */
+    bool isEmpty()
+    {
+        return p_start >= data.size();
+    }
 };
 
 /***********************************************************************************
@@ -87,7 +88,8 @@ class MyQueue {
  * Source： https://leetcode-cn.com/explore/learn/card/queue-stack/216/queue-first-in-first-out-data-structure/865/
 ************************************************************************************/
 
-class MyCircularQueue {
+class MyCircularQueue
+{
 private:
     vector<int> data;
     int head;
@@ -96,7 +98,8 @@ private:
 
 public:
     /** Initialize your data structure here. Set the size of the queue to be k. */
-    MyCircularQueue(int k) {
+    MyCircularQueue(int k)
+    {
         data.resize(k);
         head = -1;
         tail = -1;
@@ -104,11 +107,14 @@ public:
     }
 
     /** Insert an element into the circular queue. Return true if the operation is successful. */
-    bool enQueue(int value) {
-        if (isFull()) {
+    bool enQueue(int value)
+    {
+        if (isFull())
+        {
             return false;
         }
-        if (isEmpty()) {
+        if (isEmpty())
+        {
             head = 0;
         }
 
@@ -118,12 +124,15 @@ public:
     }
 
     /** Delete an element from the circular queue. Return true if the operation is successful. */
-    bool deQueue() {
-        if (isEmpty()) {
+    bool deQueue()
+    {
+        if (isEmpty())
+        {
             return false;
         }
 
-        if (head == tail) {
+        if (head == tail)
+        {
             head = -1;
             tail = -1;
             return true;
@@ -134,28 +143,34 @@ public:
     }
 
     /** Get the front item from the queue. */
-    int Front() {
-        if (isEmpty()) {
+    int Front()
+    {
+        if (isEmpty())
+        {
             return -1;
         }
         return data[head];
     }
 
     /** Get the last item from the queue. */
-    int Rear() {
-        if (isEmpty()) {
+    int Rear()
+    {
+        if (isEmpty())
+        {
             return -1;
         }
         return data[tail];
     }
 
     /** Checks whether the circular queue is empty or not. */
-    bool isEmpty() {
+    bool isEmpty()
+    {
         return head == -1;
     }
 
     /** Checks whether the circular queue is full or not. */
-    bool isFull() {
+    bool isFull()
+    {
         return ((tail + 1) % size) == head;
     }
 };
@@ -171,7 +186,6 @@ public:
  * bool param_6 = obj.isFull();
  */
 
-
 /**
  * Implement Queue by Two Stacks
  * As the title described, you should only use two stacks to implement a queue's actions.
@@ -184,114 +198,70 @@ public:
  *  For push(1), pop(), push(2), push(3), top(), pop(), you should return 1, 2 and 2
  */
 
-class MyQueue {
+class MyQueueBy2Stacks
+{
 public:
     stack<int> stack1;
     stack<int> stack2;
 
-    MyQueue() {
-
+    MyQueueBy2Stacks()
+    {
     }
 
-    void push(int element) {
+    void push(int element)
+    {
         stack1.push(element);
     }
 
-    void adjust() {
-        if (stack2.empty()) {
-            while (!stack1.empty()) {
+    void adjust()
+    {
+        if (stack2.empty())
+        {
+            while (!stack1.empty())
+            {
                 stack2.push(stack1.top());
                 stack1.pop();
             }
         }
     }
 
-    int pop() {
+    int pop()
+    {
         adjust();
         int temp = stack2.top();
         stack2.pop();
         return temp;
     }
 
-    int top() {
+    int top()
+    {
         adjust();
         return stack2.top();
     }
 };
 
-/**
- * BFS - Template 1
- * Return the length of the shortest path between root and target node.
- *
- * 1. As shown in the code, in each round, the nodes in the queue are the nodes which are waiting to be processed.
- * 2. After each outer while loop, we are one step farther from the root node.
- *    The variable step indicates the distance from the root node and the current node we are visiting.
- */
-int BFS(TreeNode root, TreeNode target) {
-    queue<TreeNode> queue;  // store all nodes which are waiting to be processed
-    int step = 0;       // number of steps neeeded from root to current node
-    // initialize
-    add root to queue;
-    // BFS
-    while (queue is not empty) {
-        step = step + 1;
-        // iterate the nodes which are already in the queue
-        int size = queue.size();
-        for (int i = 0; i < size; ++i) {
-            Node cur = the first node in queue;
-            return step if cur is target;
-            for (Node next : the neighbors of cur) {
-                add next to queue;
-            }
-            remove the first node from queue;
-        }
-    }
-    return -1;          // there is no path from root to target
-}
-
-/**
- * BFS - Template 2
- * Return the length of the shortest path between root and target node.
- *
- * There are two cases you don't need the hash set used:
- *  1. You are absolutely sure there is no cycle, for example, in tree traversal;
- *  2. You do want to add the node to the queue multiple times.
- */
-int BFS(TreeNode root, TreeNode target) {
-    queue<TreeNode> queue;  // store all nodes which are waiting to be processed
-    int step = 0;       // number of steps neeeded from root to current node
-    // initialize
-    add root to queue;
-    // BFS
-    while (queue is not empty) {
-        step = step + 1;
-        // iterate the nodes which are already in the queue
-        int size = queue.size();
-        for (int i = 0; i < size; ++i) {
-            Node cur = the first node in queue;
-            return step if cur is target;
-            for (Node next : the neighbors of cur) {
-                add next to queue;
-            }
-            remove the first node from queue;
-        }
-    }
-    return -1;          // there is no path from root to target
-}
-
-int main() {
+int main()
+{
     MyCircularQueue q(6);
     q.enQueue(5);
     q.enQueue(3);
-    if (!q.isEmpty()) {
+
+    if (!q.isEmpty())
+    {
         cout << q.Front() << endl;
     }
+
     q.deQueue();
-    if (!q.isEmpty()) {
+
+    if (!q.isEmpty())
+    {
         cout << q.Front() << endl;
     }
+
     q.deQueue();
-    if (!q.isEmpty()) {
+
+    if (!q.isEmpty())
+    {
         cout << q.Front() << endl;
     }
 }
