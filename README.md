@@ -18,10 +18,11 @@ collect some good articles about data structure and algorithm.
 3. [算法的时间与空间复杂度](https://shimo.im/docs/tMfuE8CWftQyEn1M/)
 4. [数据结构的基本知识总结](https://shimo.im/docs/w6lsN96M964doHUE/)
 5. [二叉树的遍历详解（前序中序后序层次-递归和非递归）](https://shimo.im/docs/MAbjWlrqWqU1f72m/)
-6. [视觉直观感受7种常用的排序算法](https://shimo.im/doc/8KWauxFPQUwhe5wI/)
+6. [视觉直观感受 7 种常用的排序算法](https://shimo.im/doc/8KWauxFPQUwhe5wI/)
 7. [素数生成算法](https://shimo.im/doc/j5MUwPfDObckzUHA/)
 8. [红-黑树](https://shimo.im/docs/IdtXEZbkUMQLV54a/)
 9. [堆(Heap)](https://shimo.im/docs/aH0fT9Z9trElZgsv)
+10. [图解算法数据结构](https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/55187i/)
 
 ## 🙉 排序算法(Sorting Algorithm)
 
@@ -43,10 +44,10 @@ collect some good articles about data structure and algorithm.
 3. [霍夫曼编码(Huffman Coding)](https://zh.wikipedia.org/wiki/霍夫曼编码)
 4. [队列(Queue)](https://zh.wikipedia.org/wiki/队列)
 5. [栈(Stack)](https://zh.wikipedia.org/wiki/堆栈)
-6. [集合(Set)](https://zh.wikipedia.org/wiki/集合_(计算机科学))
+6. [集合(Set)](<https://zh.wikipedia.org/wiki/集合_(计算机科学)>)
 7. [哈希表(Map)](https://zh.wikipedia.org/wiki/哈希表)
 8. [堆(Heap)](https://zh.wikipedia.org/wiki/堆積)
-9. [图(Graph)](https://zh.wikipedia.org/wiki/图_(数学))
+9. [图(Graph)](<https://zh.wikipedia.org/wiki/图_(数学)>)
 
 ## 🔭 学习工具(Learning Tools)
 
@@ -54,13 +55,13 @@ collect some good articles about data structure and algorithm.
 2. [领扣中国](https://leetcode-cn.com)
 3. [C++教程](http://www.runoob.com/cplusplus/cpp-tutorial.html)
 4. [看云数据结构与算法/leetcode/lintcode](https://www.kancloud.cn/kancloud/data-structure-and-algorithm-notes)
-5. [可视化算法Algorithm Visualizer](http://algorithm-visualizer.org)
+5. [可视化算法 Algorithm Visualizer](http://algorithm-visualizer.org)
 6. [旧金山大学数据结构和算法的可视化学习工具](https://www.cs.usfca.edu/~galles/visualization/source.html)
-7. [可视化排序算法Sorting](http://sorting.at/)
-8. [动画学习算法和数据结构VisulaGo](https://visualgo.net/en)
+7. [可视化排序算法 Sorting](http://sorting.at/)
+8. [动画学习算法和数据结构 VisulaGo](https://visualgo.net/en)
 9. [普林斯顿大学经典算法教材](https://algs4.cs.princeton.edu/home/)
 
-## 🏷️ LeetCode标签(LeetCode Tags)
+## 🏷️ LeetCode 标签(LeetCode Tags)
 
 1. [数组](https://leetcode-cn.com/tag/array/)
 2. [动态规划](https://leetcode-cn.com/tag/dynamic-programming/)
