@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2021-03-05 19:11:18
  * @Last Modified by: Chacha
- * @Last Modified time: 2021-03-05 19:15:47
+ * @Last Modified time: 2021-03-07 22:08:29
  */
 
 #include <iostream>
@@ -10,6 +10,10 @@
 #include <queue>
 using namespace std;
 
+/**
+ * 树是一种非线性数据结构，根据子节点数量可分为 「二叉树」 和 「多叉树」，最顶层的节点称为「根节点 root」。
+ * 以二叉树为例，每个节点包含三个成员变量：「值 val」、「左子节点 left」、「右子节点 right」 。
+ */
 struct TreeNode
 {
     int val;

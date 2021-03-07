@@ -1,8 +1,8 @@
-/**
+/*
  * @Author: Chacha
  * @Date: 2018-12-05 22:58:19
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-08 22:23:42
+ * @Last Modified time: 2021-03-07 22:08:39
  */
 
 #include <iostream>
@@ -10,35 +10,41 @@
 #include <stack>
 using namespace std;
 
-class MyStack {
-    private:
-        vector<int> data;               // store elements
+class MyStack
+{
+private:
+    vector<int> data; // store elements
 
-    public:
-        /** Insert an element into the stack. */
-        void push(int x) {
-            data.push_back(x);
+public:
+    /** Insert an element into the stack. */
+    void push(int x)
+    {
+        data.push_back(x);
+    }
+
+    /** Checks whether the queue is empty or not. */
+    bool isEmpty()
+    {
+        return data.empty();
+    }
+
+    /** Get the top item from the queue. */
+    int top()
+    {
+        return data.back();
+    }
+
+    /** Delete an element from the queue. Return true if the operation is successful. */
+    bool pop()
+    {
+        if (isEmpty())
+        {
+            return false;
         }
 
-        /** Checks whether the queue is empty or not. */
-        bool isEmpty() {
-            return data.empty();
-        }
-
-        /** Get the top item from the queue. */
-        int top() {
-            return data.back();
-        }
-
-        /** Delete an element from the queue. Return true if the operation is successful. */
-        bool pop() {
-            if (isEmpty()) {
-                return false;
-            }
-
-            data.pop_back();
-            return true;
-        }
+        data.pop_back();
+        return true;
+    }
 };
 
 /***********************************************************************************
@@ -60,30 +66,37 @@ class MyStack {
  *
  * Source: https://leetcode-cn.com/explore/learn/card/queue-stack/218/stack-last-in-first-out-data-structure/877/
 ************************************************************************************/
-class MinStack {
-    public:
-        stack<int> s1;
-        stack<int> s2;
+class MinStack
+{
+public:
+    stack<int> s1;
+    stack<int> s2;
 
-    MinStack() {
-
+    MinStack()
+    {
     }
 
-    void push(int x) {
+    void push(int x)
+    {
         s1.push(x);
-        if (s2.empty() || x <= getMin()) s2.push(x);
+        if (s2.empty() || x <= getMin())
+            s2.push(x);
     }
 
-    void pop() {
-        if (s1.top() == getMin()) s2.pop();
+    void pop()
+    {
+        if (s1.top() == getMin())
+            s2.pop();
         s1.pop();
     }
 
-    int top() {
+    int top()
+    {
         return s1.top();
     }
 
-    int getMin() {
+    int getMin()
+    {
         return s2.top();
     }
 }
@@ -97,14 +110,18 @@ class MinStack {
  * int param_4 = obj.getMin();
  */
 
-int main() {
+int
+main()
+{
     MyStack s;
     s.push(1);
     s.push(2);
     s.push(3);
 
-    for (int i = 0; i < 4; ++i) {
-        if (!s.isEmpty()) {
+    for (int i = 0; i < 4; ++i)
+    {
+        if (!s.isEmpty())
+        {
             cout << s.top() << endl;
         }
         cout << (s.pop() ? "true" : "false") << endl;
