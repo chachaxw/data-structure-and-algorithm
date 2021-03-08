@@ -23,6 +23,7 @@ collect some good articles about data structure and algorithm.
 8. [红-黑树](https://shimo.im/docs/IdtXEZbkUMQLV54a/)
 9. [堆(Heap)](https://shimo.im/docs/aH0fT9Z9trElZgsv)
 10. [图解算法数据结构](https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/55187i/)
+11. [LeetCode 刷题手册](https://books.halfrost.com/leetcode/)
 
 ## 🙉 排序算法(Sorting Algorithm)
 
