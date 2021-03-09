@@ -25,7 +25,7 @@ using namespace std;
 int main()
 {
     // 初始化小顶堆
-    priority_queue<int, vector<int>, greater<int> > heap;
+    priority_queue<int, vector<int>, greater<int>> heap;
 
     // 元素入堆
     heap.push(1);

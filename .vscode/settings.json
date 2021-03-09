@@ -68,7 +68,8 @@
         "ratio": "cpp",
         "system_error": "cpp",
         "utility": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "__tree": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled",
     "fileheader.LastModifiedBy": "Chacha",
