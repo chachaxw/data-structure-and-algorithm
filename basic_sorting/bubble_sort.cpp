@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2018-12-13 22:10:30
  * @Last Modified by: Chacha
- * @Last Modified time: 2021-03-09 11:35:15
+ * @Last Modified time: 2021-03-09 17:14:13
  */
 
 /**
@@ -10,7 +10,7 @@
  * Source: https://zh.wikipedia.org/wiki/冒泡排序
  *
  * Time Complexity: O(n^2)
- * Space Complexity: O(n^2)
+ * Space Complexity: O(1)
  *
  * 核心：冒泡，持续比较相邻元素，大的挪到后面，因此大的会逐步往后挪，故称之为冒泡。
  */

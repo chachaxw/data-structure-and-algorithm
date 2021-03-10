@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2018-12-29 23:03:23
  * @Last Modified by: Chacha
- * @Last Modified time: 2019-01-13 08:46:13
+ * @Last Modified time: 2021-03-10 10:01:20
  */
 
 #include <iostream>
@@ -15,7 +15,7 @@ using namespace std;
  *  https://algs4.cs.princeton.edu/23quicksort/
  *
  * Time Complexity: O(n log n) (the badest situation is O(n^2))
- * Space Complexity: O (log n)
+ * Space Complexity: O(log n)
  *
  * The solution:
  *  1. Find a pivot element x;

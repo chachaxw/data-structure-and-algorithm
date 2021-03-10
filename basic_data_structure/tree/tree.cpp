@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2021-03-05 19:11:18
  * @Last Modified by: Chacha
- * @Last Modified time: 2021-03-07 22:08:29
+ * @Last Modified time: 2021-03-09 15:18:46
  */
 
 #include <iostream>
@@ -31,7 +31,7 @@ struct TreeNode
  *    The variable step indicates the distance from the root node and the current node we are visiting.
  */
 
-/*
+/* 广度优先搜索
 int BFS(TreeNode root, TreeNode target)
 {
     queue<TreeNode> queue; // store all nodes which are waiting to be processed
@@ -49,6 +49,7 @@ int BFS(TreeNode root, TreeNode target)
         {
             Node cur = the first node in queue;
             return step if cur is target;
+
             for (Node next : the neighbors of cur)
             {
                 add next to queue;
@@ -87,6 +88,7 @@ int BFS(TreeNode root, TreeNode target)
         {
             Node cur = the first node in queue;
             return step if cur is target;
+
             for (Node next : the neighbors of cur)
             {
                 add next to queue;

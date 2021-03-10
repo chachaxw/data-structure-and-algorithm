@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2018-12-25 22:53:20
  * @Last Modified by: Chacha
- * @Last Modified time: 2021-03-04 23:19:23
+ * @Last Modified time: 2021-03-09 13:49:12
  */
 
 #include <iostream>
@@ -12,6 +12,9 @@ using namespace std;
 /**
  * 归并排序的核心：将两个有序对数组归并成一个更大对有序数组。
  * 通常做法为递归排序，并将两个不同的有序数组归并到第三个数组中。
+ *
+ * Time Complexity: O(n log n)
+ * Space Complexity: O(n)
  *
  * Source:
  *  https://zh.wikipedia.org/wiki/归并排序
