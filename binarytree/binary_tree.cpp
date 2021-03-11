@@ -352,8 +352,8 @@ void iterativePostOrderTraversal2(TreeNode *root)
     }
 
     stack<TreeNode *> nStack;
-    TreeNode *cur;         // Current node
-    TreeNode *prev = NULL; // Previous node
+    TreeNode *cur;         // 当前节点
+    TreeNode *prev = NULL; // 前一次访问的节点
     nStack.push(root);
 
     while (nStack.empty() != true)
@@ -481,8 +481,10 @@ void LevelOrderDev(TreeNode *root)
 }
 
 /**
- * Iterative Way 1
- * Use two pointers, one pointer for current level nodes and another for next level nodes
+ * Iterative Way 2
+ *
+ * 双指针法：一个cur指向访问当层开始的节点，一个end指向访问当层结束节点的下一位置
+ *
  */
 void LevelOrderUsePoint(TreeNode *root)
 {
