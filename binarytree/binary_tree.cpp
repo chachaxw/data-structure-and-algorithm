@@ -3,9 +3,11 @@
  * @Date: 2018-11-24 13:31:24
  * @Last Modified by: Chacha
  * @Last Modified time: 2021-03-10 12:02:36
- * @Source: https://leetcode.com/explore/learn/card/data-structure-tree
- *          https://shimo.im/docs/MAbjWlrqWqU1f72m
+ * @Source: 二叉树 https://leetcode-cn.com/leetbook/detail/data-structure-binary-tree/
+ *          二叉树的遍历详解 https://shimo.im/docs/MAbjWlrqWqU1f72m
  */
+
+/// 二叉树基本遍历，前序遍历，中序遍历，后续遍历
 
 #include <iostream>
 #include <vector>
@@ -14,7 +16,7 @@
 using namespace std;
 
 /**
- * Definition for a binary tree node.
+ * Definition for a binary tree node(定义一个二叉树).
  */
 struct TreeNode
 {

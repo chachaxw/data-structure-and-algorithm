@@ -1,21 +1,21 @@
-/*
- * @Author: Chacha 
- * @Date: 2018-11-26 11:11:37 
+/**
+ * @Author: Chacha
+ * @Date: 2018-11-26 11:11:37
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-11-26 13:22:07
+ * @Last Modified time: 2021-03-26 18:08:00
  */
 
 /**
  * Implement int sqrt(int x).
  * Compute and return the square root of x, where x is guaranteed to be a non-negative integer.
- * Since the return type is an integer, the decimal digits are truncated 
+ * Since the return type is an integer, the decimal digits are truncated
  * and only the integer part of the result is returned.
  * Source: https://leetcode.com/problems/sqrtx/
- * 
+ *
  * Example 1:
- *  Input: 4 
+ *  Input: 4
  *  Output: 2
- * 
+ *
  * Example 2:
  *  Input: 8
  *  Output: 2
@@ -23,12 +23,17 @@
  */
 
 #include <iostream>
+
 using namespace std;
 
-int sqrt(int x) {
-    if (x < 0) {
+int sqrt(int x)
+{
+    if (x < 0)
+    {
         return -1;
-    } else if(x == 0) {
+    }
+    else if (x == 0)
+    {
         return 0;
     }
 
@@ -36,14 +41,20 @@ int sqrt(int x) {
     long end = x;
     long mid;
 
-    while(start + 1 < end) {
+    while (start + 1 < end)
+    {
         mid = start + (end - start) / 2;
 
-        if (mid * mid == x) {
+        if (mid * mid == x)
+        {
             return mid;
-        } else if(mid * mid > x) {
+        }
+        else if (mid * mid > x)
+        {
             end = mid;
-        } else {
+        }
+        else
+        {
             start = mid;
         }
     }
@@ -52,23 +63,29 @@ int sqrt(int x) {
 }
 
 // Babylonian method for finding square roots
-int sqrtByBabylonian(int x) {
-    if (x == 0) {
+int sqrtByBabylonian(int x)
+{
+    if (x == 0)
+    {
         return 0;
     }
 
     double preSqrt, curSqrt = x, xFloat = x;
-    while(true) {
+
+    while (true)
+    {
         preSqrt = curSqrt;
         curSqrt = (curSqrt + xFloat / curSqrt) / 2;
 
-        if (preSqrt == curSqrt) {
+        if (preSqrt == curSqrt)
+        {
             return curSqrt;
         }
     }
 }
 
-int main() {
+int main()
+{
     int result1 = sqrt(8);
     int result2 = sqrtByBabylonian(10);
     cout << "Result1 is " << result1 << "\n";

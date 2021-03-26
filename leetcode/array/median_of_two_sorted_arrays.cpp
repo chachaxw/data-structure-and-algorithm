@@ -1,99 +1,109 @@
 /**
- * @Author: Chacha 
- * @Date: 2018-11-30 16:49:55 
+ * @Author: Chacha
+ * @Date: 2018-11-30 16:49:55
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-09 21:51:23
+ * @Last Modified time: 2021-03-26 18:13:00
  */
 
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
 /***********************************************************************************
- * There are two sorted arrays A and B of size m and n respectively. 
+ * There are two sorted arrays A and B of size m and n respectively.
  * Find the median of the two sorted arrays.
  * You may assume nums1 and nums2 cannot be both empty.
- * 
+ *
  * Example 1:
  *  nums1 = [1, 3]
  *  nums2 = [2]
  *  The median is 2.0
- * 
+ *
  * Example 2:
  *  nums1 = [1, 2]
  *  nums2 = [3, 4]
  *  The median is (2 + 3)/2 = 2.5
- * 
+ *
  * Source: https://leetcode.com/problems/median-of-two-sorted-arrays/
  *         https://leetcode.com/problems/median-of-two-sorted-arrays/solution/
 ************************************************************************************/
 int findKth(
-    vector<int>& nums1, 
-    vector<int>::size_type nums1_start, 
-    vector<int>& nums2, 
+    vector<int> &nums1,
+    vector<int>::size_type nums1_start,
+    vector<int> &nums2,
     vector<int>::size_type nums2_start,
-    int k
-    ) {
-        if (nums1_start > nums1.size() - 1) {
-            // all of the element of num2 are smaller than the kTh number
-            return nums2[nums2_start + k - 1]; 
-        }
-
-        if (nums2_start > nums2.size() - 1) {
-            // all of the element of num1 are smaller than the kTh number
-            return nums1[nums1_start + k - 1]; 
-        }
-
-        if (k == 1) {
-            return nums1[nums1_start] < nums2[nums2_start] ? nums1[nums1_start] : nums2[nums2_start];
-        }
-
-        int nums1_key = nums1_start + k / 2 - 1 < nums1.size() ?
-                        nums1[nums1_start + k / 2 - 1] : INT_MAX;
-        int nums2_key = nums2_start + k / 2 - 1 < nums2.size() ?
-                        nums2[nums2_start + k / 2 -1] : INT_MAX;
-
-        if (nums1_key > nums2_key) {
-            return findKth(nums1, nums1_start, nums2, nums2_start + k / 2, k - k / 2);
-        } else {
-            return findKth(nums1, nums1_start + k / 2, nums2, nums2_start, k - k / 2);
-        }
-
+    int k)
+{
+    if (nums1_start > nums1.size() - 1)
+    {
+        // all of the element of num2 are smaller than the kTh number
+        return nums2[nums2_start + k - 1];
     }
 
-double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-    if (nums1.empty() && nums2.empty()) {
+    if (nums2_start > nums2.size() - 1)
+    {
+        // all of the element of num1 are smaller than the kTh number
+        return nums1[nums1_start + k - 1];
+    }
+
+    if (k == 1)
+    {
+        return nums1[nums1_start] < nums2[nums2_start] ? nums1[nums1_start] : nums2[nums2_start];
+    }
+
+    int nums1_key = nums1_start + k / 2 - 1 < nums1.size() ? nums1[nums1_start + k / 2 - 1] : INT_MAX;
+    int nums2_key = nums2_start + k / 2 - 1 < nums2.size() ? nums2[nums2_start + k / 2 - 1] : INT_MAX;
+
+    if (nums1_key > nums2_key)
+    {
+        return findKth(nums1, nums1_start, nums2, nums2_start + k / 2, k - k / 2);
+    }
+    else
+    {
+        return findKth(nums1, nums1_start + k / 2, nums2, nums2_start, k - k / 2);
+    }
+}
+
+double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2)
+{
+    if (nums1.empty() && nums2.empty())
+    {
         return 0;
     }
 
     vector<int> NonEmpty;
 
-    if (nums1.empty()) {
+    if (nums1.empty())
+    {
         NonEmpty = nums2;
     }
 
-    if (nums2.empty()) {
+    if (nums2.empty())
+    {
         NonEmpty = nums1;
     }
 
-    if (!NonEmpty.empty()) {
+    if (!NonEmpty.empty())
+    {
         vector<int>::size_type vec_len = NonEmpty.size();
 
-        return vec_len % 2 == 0 ?
-                (NonEmpty[vec_len / 2 - 1] + NonEmpty[vec_len / 2]) / 2 :
-                NonEmpty[vec_len / 2];
+        return vec_len % 2 == 0 ? (NonEmpty[vec_len / 2 - 1] + NonEmpty[vec_len / 2]) / 2 : NonEmpty[vec_len / 2];
     }
 
     vector<int>::size_type len = nums1.size() + nums2.size();
 
-    if (len % 2 == 0) {
+    if (len % 2 == 0)
+    {
         return ((findKth(nums1, 0, nums2, 0, len / 2) + findKth(nums1, 0, nums2, 0, len / 2 + 1)) / 2);
-    } else {
+    }
+    else
+    {
         return findKth(nums1, 0, nums2, 0, len / 2 + 1);
     }
-
 }
 
-int main() {
+int main()
+{
     return 0;
 }

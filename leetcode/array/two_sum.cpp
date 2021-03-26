@@ -1,13 +1,13 @@
 /**
- * @Author: Chacha 
- * @Date: 2018-11-24 12:10:01 
+ * @Author: Chacha
+ * @Date: 2018-11-24 12:10:01
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-11-24 14:58:19
+ * @Last Modified time: 2021-03-26 18:13:27
  * @Source: https://leetcode.com/problems/two-sum/
  */
 
 /***********************************************************************************
- * 
+ *
  * Given an array of integers, return indices of the two numbers such that they add up to a specific target.
  * You may assume that each input would have exactly one solution, and you may not use the same element twice.
  * Example:
@@ -16,23 +16,26 @@
  *   return [0, 1].
 ************************************************************************************/
 
-
 #include <iostream>
 #include <string>
 #include <vector>
 #include <unordered_map>
+
 using namespace std;
 
-vector<int> twoSum(vector<int> &nums, int target) {
+vector<int> twoSum(vector<int> &nums, int target)
+{
     //Key is the number and value is its index in the vector.
     unordered_map<int, int> hash;
     vector<int> result;
 
-    for(int i = 0; i < nums.size(); i++) {
+    for (int i = 0; i < nums.size(); i++)
+    {
         int number = target - nums[i];
 
         //if number is found in map, return them
-        if (hash.find(number) != hash.end()) {
+        if (hash.find(number) != hash.end())
+        {
             result.push_back(hash[number]);
             result.push_back(i);
             return result;
@@ -44,17 +47,20 @@ vector<int> twoSum(vector<int> &nums, int target) {
     return result;
 }
 
-void printVector(vector<int> &vec) {
-    for(int i= 0; i < vec.size(); i++) {
+void printVector(vector<int> &vec)
+{
+    for (int i = 0; i < vec.size(); i++)
+    {
         printf("%3d", vec[i]);
     }
     cout << endl;
 }
 
-int main() {
+int main()
+{
     /* code */
     int arr[] = {2, 7, 11, 15};
-    vector<int> nums(arr, arr + sizeof(arr)/sizeof(int));
+    vector<int> nums(arr, arr + sizeof(arr) / sizeof(int));
     vector<int> result = twoSum(nums, 9);
 
     printVector(result);

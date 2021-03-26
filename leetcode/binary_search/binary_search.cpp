@@ -1,19 +1,19 @@
 /**
- * @Author: Chacha 
- * @Date: 2018-11-24 19:05:12 
+ * @Author: Chacha
+ * @Date: 2018-11-24 19:05:12
  * @Last Modified by: Chacha
- * @Last Modified time: 2018-12-03 21:41:10
+ * @Last Modified time: 2021-03-26 18:05:40
  */
 
 /**
- * The steps of binary search: 
+ * The steps of binary search:
  * 1. Let min = 0 , and let max = n where n is the highest possible index value;
  * 2. Find the average of min and max, round down so it’s an integer. This is our guess;
  * 3. If we guessed the number, stop, we got it;
  * 4. If guess is too low, set min equal to one more than guess;
  * 5. If guess is too high, set max equal to one less than guess;
  * 6. Go back to step two.
- * 
+ *
  * 3 Parts of a Successful Binary Search
  * 1. Pre-processing - Sort if collection is unsorted.
  * 2. Binary Search - Using a loop or recursion to divide search space in half after each comparison.
@@ -22,37 +22,48 @@
 
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
 // Binary search template
-int binarySearch(vector<int>& nums, int target) {
-    
-    if (nums.empty()) {
+int binarySearch(vector<int> &nums, int target)
+{
+
+    if (nums.empty())
+    {
         return -1;
     }
 
     int mid;
     int min = 0;
-    int max = nums.size() -1;
-    
-    while(min + 1 < max){
+    int max = nums.size() - 1;
+
+    while (min + 1 < max)
+    {
         // Prevent (left + right) overflow
         mid = min + (max - min) / 2;
-        
-        if (nums[mid] == target) {
+
+        if (nums[mid] == target)
+        {
             return mid;
-        } else if (nums[mid] < target) {
+        }
+        else if (nums[mid] < target)
+        {
             min = mid;
-        } else {
+        }
+        else
+        {
             max = mid;
         }
     }
 
-    if (nums[min] == target) {
+    if (nums[min] == target)
+    {
         return min;
     }
 
-    if (nums[max] == target) {
+    if (nums[max] == target)
+    {
         return max;
     }
 
@@ -66,7 +77,8 @@ int binarySearch(vector<int>& nums, int target) {
  * For example, Given [5, 7, 7, 8, 8, 10] and target value 8, return [3, 4].
 ************************************************************************************/
 
-vector<int> binarySearchForRange(vector<int> nums, int target) {
+vector<int> binarySearchForRange(vector<int> nums, int target)
+{
 
     int start, end, mid;
     vector<int> bound(2);
@@ -74,45 +86,67 @@ vector<int> binarySearchForRange(vector<int> nums, int target) {
     // Search for left bound
     start = 0;
     end = nums.size() - 1;
-    
-    while(start + 1 < end){
+
+    while (start + 1 < end)
+    {
         // Prevent (left + right) overflow
         mid = start + (end - start) / 2;
-        if (nums[mid] == target) {
+        if (nums[mid] == target)
+        {
             end = mid;
-        } else if (nums[mid] < target) {
+        }
+        else if (nums[mid] < target)
+        {
             start = mid;
-        } else {
+        }
+        else
+        {
             end = mid;
         }
     }
-    if (nums[start] == target) {
+    if (nums[start] == target)
+    {
         bound[0] = start;
-    } else if (nums[end] == target) {
+    }
+    else if (nums[end] == target)
+    {
         bound[0] = end;
-    } else {
+    }
+    else
+    {
         bound[0] = bound[1] = -1;
         return bound;
     }
 
     // Search for right bound
-    while(start + 1 < end){
+    while (start + 1 < end)
+    {
         // Prevent (left + right) overflow
         mid = start + (end - start) / 2;
-        if (nums[mid] == target) {
+        if (nums[mid] == target)
+        {
             start = mid;
-        } else if (nums[mid] < target) {
+        }
+        else if (nums[mid] < target)
+        {
             start = mid;
-        } else {
+        }
+        else
+        {
             end = mid;
         }
     }
 
-    if (nums[end] == target) {
+    if (nums[end] == target)
+    {
         bound[1] = end;
-    } else if (nums[start] == target) {
+    }
+    else if (nums[start] == target)
+    {
         bound[1] = start;
-    } else {
+    }
+    else
+    {
         bound[0] = bound[1] = -1;
         return bound;
     }
@@ -121,32 +155,40 @@ vector<int> binarySearchForRange(vector<int> nums, int target) {
 }
 
 /***********************************************************************************
- * Given a sorted array and a target value, return the index if the target is found. 
+ * Given a sorted array and a target value, return the index if the target is found.
  * If not, return the index where it would be if it were inserted in-order.
  * You may assume NO duplicates in the array.
  * Source: https://leetcode.com/problems/search-insert-position/
- * 
- * Example: 
+ *
+ * Example:
  *  [1,3,5,6], 5 → 2
  *  [1,3,5,6], 2 → 1
  *  [1,3,5,6], 7 → 4
  *  [1,3,5,6], 0 → 0
 ************************************************************************************/
-int searchInsert(vector<int> nums, int target) {
-    if (nums.empty()) {
+int searchInsert(vector<int> nums, int target)
+{
+    if (nums.empty())
+    {
         return -1;
     }
 
     int start = -1, mid, end = nums.size();
 
-    while(start + 1 < end) {
+    while (start + 1 < end)
+    {
         mid = start + (end - start) / 2;
 
-        if (nums[mid] == target) {
+        if (nums[mid] == target)
+        {
             return mid;
-        } else if(nums[mid] < target) {
+        }
+        else if (nums[mid] < target)
+        {
             start = mid;
-        } else {
+        }
+        else
+        {
             end = mid;
         }
     }
@@ -155,17 +197,20 @@ int searchInsert(vector<int> nums, int target) {
 }
 
 // Print vector value
-void printVector(vector<int> &vec) {
-    for(int i= 0; i < vec.size(); i++) {
+void printVector(vector<int> &vec)
+{
+    for (int i = 0; i < vec.size(); i++)
+    {
         printf("Vector is %3d", vec[i]);
         printf("\n");
     }
     cout << endl;
 }
 
-int main() {
+int main()
+{
     int arr[] = {1, 3, 4, 6, 7, 8, 10, 10, 10, 13, 14, 18, 19, 21, 24, 37, 40, 45, 71};
-    vector<int> nums(arr, arr + sizeof(arr)/sizeof(int));
+    vector<int> nums(arr, arr + sizeof(arr) / sizeof(int));
     int target = 10;
 
     int result1 = binarySearch(nums, target);
