@@ -1,11 +1,5 @@
 # 🆒 数据结构与算法(Data Structure and Algorithm)
 
-```bash
-This is a data structure and algorithm practice, most of code is C++, and I will keep
-updating every day, just for learning how to improve coding skill. And I will also
-collect some good articles about data structure and algorithm.
-```
-
 ![Github Issues](https://img.shields.io/github/issues/chachaxw/data-structure-and-algorithm)
 ![Github Forks](https://img.shields.io/github/forks/chachaxw/data-structure-and-algorithm)
 ![Github Stars](https://img.shields.io/github/stars/chachaxw/data-structure-and-algorithm)
