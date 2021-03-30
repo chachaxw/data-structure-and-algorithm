@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2018-12-03 17:14:17
  * @Last Modified by: Chacha
- * @Last Modified time: 2021-03-05 19:14:35
+ * @Last Modified time: 2021-03-30 15:39:08
  */
 
 #include <iostream>
@@ -11,7 +11,7 @@
 #include <stack>
 using namespace std;
 
-// Normal Queue
+// 基本队列实现(Queue)
 class MyQueue
 {
 private:
@@ -57,23 +57,24 @@ public:
     }
 };
 
-/***********************************************************************************
- * Design your implementation of the circular queue.
- * The circular queue is a linear data structure in which the operations
- * are performed based on FIFO (First In First Out) principle and
- * the last position is connected back to the first position to make a circle.
- * It is also called "Ring Buffer".
- * Your implementation should support following operations:
- *  1. MyCircularQueue(k): Constructor, set the size of the queue to be k.
- *  2. Front: Get the front item from the queue. If the queue is empty, return -1.
- *  3. Rear: Get the last item from the queue. If the queue is empty, return -1.
- *  4. enQueue(value): Insert an element into the circular queue.
- *     Return true if the operation is successful.
- *  5. deQueue(): Delete an element from the circular queue. Return true if the operation is successful.
- *  6. isEmpty(): Checks whether the circular queue is empty or not.
- *  7. isFull(): Checks whether the circular queue is full or not.
+/**
+ * 设计循环队列。循环队列是一种线性数据结构，其操作表现基于 FIFO（先进先出）原则并且队尾被连接在队首之后以形成一个循环。
+ * 它也被称为“环形缓冲器”。
  *
- * Example:
+ * 循环队列的一个好处是我们可以利用这个队列之前用过的空间。在一个普通队列里，一旦一个队列满了，
+ * 我们就不能插入下一个元素，即使在队列前面仍有空间。但是使用循环队列，我们能使用这些空间去存储新的值。
+ *
+ * 实现要求:
+ *  1. MyCircularQueue(k): 构造器，设置队列长度为 k (Constructor, set the size of the queue to be k).
+ *  2. Front: 从队首获取元素，如果队列为空，返回 -1 (Get the front item from the queue. If the queue is empty, return -1).
+ *  3. Rear: 获取队尾元素。如果队列为空，返回 -1 (Get the last item from the queue. If the queue is empty, return -1).
+ *  4. enQueue(value): 向循环队列插入一个元素。如果成功插入则返回真 (Insert an element into the circular queue.
+ *     Return true if the operation is successful).
+ *  5. deQueue(): 从循环队列中删除一个元素 (Delete an element from the circular queue. Return true if the operation is successful).
+ *  6. isEmpty(): 检查循环队列是否为空 (Checks whether the circular queue is empty or not).
+ *  7. isFull(): 检查循环队列是否已满 (Checks whether the circular queue is full or not).
+ *
+ * 示例:
  *  MyCircularQueue circularQueue = new MyCircularQueue(3); // set the size to be 3
  *  circularQueue.enQueue(1);  // return true
  *  circularQueue.enQueue(2);  // return true
@@ -85,8 +86,17 @@ public:
  *  circularQueue.enQueue(4);  // return true
  *  circularQueue.Rear();  // return 4
  *
- * Source： https://leetcode-cn.com/explore/learn/card/queue-stack/216/queue-first-in-first-out-data-structure/865/
-************************************************************************************/
+ * 调用示例:
+ *  MyCircularQueue obj = new MyCircularQueue(k);
+ *  bool param_1 = obj.enQueue(value);
+ *  bool param_2 = obj.deQueue();
+ *  int param_3 = obj.Front();
+ *  int param_4 = obj.Rear();
+ *  bool param_5 = obj.isEmpty();
+ *  bool param_6 = obj.isFull();
+ *
+ * 来源： https://leetcode-cn.com/leetbook/read/queue-stack/kzlb5/
+ */
 
 class MyCircularQueue
 {
@@ -97,7 +107,7 @@ private:
     int size;
 
 public:
-    /** Initialize your data structure here. Set the size of the queue to be k. */
+    /** 初始化数据结构，同时设置循环队列的长度 */
     MyCircularQueue(int k)
     {
         data.resize(k);
@@ -106,7 +116,7 @@ public:
         size = k;
     }
 
-    /** Insert an element into the circular queue. Return true if the operation is successful. */
+    /** 插入元素到循环队列，插入成功就返回 true，否则返回 false */
     bool enQueue(int value)
     {
         if (isFull())
@@ -123,7 +133,7 @@ public:
         return true;
     }
 
-    /** Delete an element from the circular queue. Return true if the operation is successful. */
+    /** 从循环队列删除元素，删除成功就返回 true，否则返回 false */
     bool deQueue()
     {
         if (isEmpty())
@@ -142,7 +152,7 @@ public:
         return true;
     }
 
-    /** Get the front item from the queue. */
+    /** 获取队首元素 */
     int Front()
     {
         if (isEmpty())
@@ -152,7 +162,7 @@ public:
         return data[head];
     }
 
-    /** Get the last item from the queue. */
+    /** 获取队尾元素 */
     int Rear()
     {
         if (isEmpty())
@@ -162,13 +172,13 @@ public:
         return data[tail];
     }
 
-    /** Checks whether the circular queue is empty or not. */
+    /** 检查循环队列是否为空. */
     bool isEmpty()
     {
         return head == -1;
     }
 
-    /** Checks whether the circular queue is full or not. */
+    /** 检查循环队列是否已满 */
     bool isFull()
     {
         return ((tail + 1) % size) == head;
@@ -176,26 +186,9 @@ public:
 };
 
 /**
- * Your MyCircularQueue object will be instantiated and called as such:
- * MyCircularQueue obj = new MyCircularQueue(k);
- * bool param_1 = obj.enQueue(value);
- * bool param_2 = obj.deQueue();
- * int param_3 = obj.Front();
- * int param_4 = obj.Rear();
- * bool param_5 = obj.isEmpty();
- * bool param_6 = obj.isFull();
- */
-
-/**
- * Implement Queue by Two Stacks
- * As the title described, you should only use two stacks to implement a queue's actions.
- * The queue should support push(element),
- * pop() and top() where pop is pop the first(a.k.a front) element in the queue.
- * Both pop and top methods should return the value of first element.
- * LIFO + LIFO ==> FIFO
+ * 用两个栈来实现队列
  *
- * Example:
- *  For push(1), pop(), push(2), push(3), top(), pop(), you should return 1, 2 and 2
+ * 基本思路：LIFO + LIFO ==> FIFO
  */
 
 class MyQueueBy2Stacks
