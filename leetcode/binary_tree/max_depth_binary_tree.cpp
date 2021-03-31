@@ -12,7 +12,7 @@
  * 来源: https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/
  *
  * 示例：
- * 给定二叉树 [3,9,20,null,null,15,7]
+ * 给定二叉树 [3, 9, 20, null, null, 15, 7]
  *   3
  *  / \
  * 9  20
@@ -116,10 +116,27 @@ int maxDepthIterative(TreeNode *root)
     return max_depth;
 }
 
+TreeNode *insertLevelOrder(int arr[], TreeNode *root, int i, int n)
+{
+    // Base case for recursion
+    if (i < n)
+    {
+        TreeNode *temp = new TreeNode(arr[i]);
+        root = temp;
+
+        // insert left child
+        root->left = insertLevelOrder(arr, root->left, 2 * i + 1, n);
+
+        // insert right child
+        root->right = insertLevelOrder(arr, root->right, 2 * i + 2, n);
+    }
+    return root;
+}
+
 int main()
 {
-    TreeNode node = {3, 9, 20, NULL, NULL, 15, 7};
-    const int maxDepth = maxDepthIterative(node);
+    int arr[] = {3, 9, 20, NULL, NULL, 15, 7};
+    // const int maxDepth = maxDepthIterative();
 
-    cout << "Max depth is " << maxDepth << endl;
+    // cout << "Max depth is " << maxDepth << endl;
 }

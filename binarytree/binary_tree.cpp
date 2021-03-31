@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2018-11-24 13:31:24
  * @Last Modified by: Chacha
- * @Last Modified time: 2021-03-10 12:02:36
+ * @Last Modified time: 2021-03-30 14:30:46
  * @Source: 二叉树 https://leetcode-cn.com/leetbook/detail/data-structure-binary-tree/
  *          二叉树的遍历详解 https://shimo.im/docs/MAbjWlrqWqU1f72m
  */
@@ -423,7 +423,7 @@ int PrintLevel1(TreeNode *root, int n, int level)
 /**
  * 递归方式2
  *
- * 采用层次递减的方式，level = n为希望递归的层次，而层次每深入一次，level递减，当level=0时，则说明递归至第n层
+ * 采用层次递减的方式，level = n为希望递归的层次，而层次每深入一次，level递减，当 level = 0 时，则说明递归至第n层
  *
  * root: 树的根
  * n: 希望打印的层次
