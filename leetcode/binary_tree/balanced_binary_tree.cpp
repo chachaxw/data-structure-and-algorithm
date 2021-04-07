@@ -42,6 +42,13 @@ struct TreeNode
  * 方法一：自顶向下的递归
  *
  * 题解：
+ * 定义函数 height，用于计算二叉树中的任意一个节点 p 的高度：
+ *
+ * height(p)={ 0                                       p 是空节点
+ *            max(height(p.left),height(p.right))+1    p 是非空节点
+ *
+ * 自顶向下递归类似于前序遍历，对于当前遍历到的节点，首先计算左右子树的高度，如果左右子树的高度差不超过1，
+ * 再分别遍历左右子节点，并判断左子树和右子树是否平衡。
  *
  * 来源：https://leetcode-cn.com/problems/balanced-binary-tree/solution/ping-heng-er-cha-shu-by-leetcode-solution/
  *
@@ -57,12 +64,27 @@ private:
 public:
     bool isBalanced(TreeNode *root)
     {
+        if (root == NULL)
+        {
+            return root;
+        }
+        else
+        {
+            return abs(height(root->left) - height(root->right)) <= 1 && isBalanced(root->left) && isBalanced(root->right);
+        }
     }
 
     int height(TreeNode *root)
     {
 
-        return 0;
+        if (root == NULL)
+        {
+            return 0;
+        }
+        else
+        {
+            return max(height(root->left), height(root->right)) + 1;
+        }
     }
 };
 
