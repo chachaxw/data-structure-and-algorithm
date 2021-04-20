@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2018-12-28 18:05:11
  * @Last Modified by: Chacha
- * @Last Modified time: 2021-04-19 18:10:11
+ * @Last Modified time: 2021-04-19 22:59:03
  */
 
 /**
@@ -23,7 +23,7 @@
  *  1. nums 的长度范围为 [0, 10000]
  *  2. 任何一个 nums[i] 将会是一个范围在 [-1000, 1000]的整数
  *
- * 来源: https://leetcode.com/problems/find-pivot-index/
+ * 来源: https://leetcode-cn.com/problems/find-pivot-index/
  */
 
 #include <iostream>
@@ -37,6 +37,10 @@ using namespace std;
  * 左右侧元素相等即为 sum = total - numsi - sum，即 2 x sum + numsi = total。
  *
  * 当中心索引左侧或右侧没有元素时，即为零个项相加，这在数学上称作「空和」（empty sum）。在程序设计中我们约定「空和是零」。
+ *
+ * 复杂度：
+ * 时间复杂度：O(n)，其中 n 为数组的长度
+ * 空间复杂度：O(1)
  *
  */
 int pivotIndex(vector<int> &nums)

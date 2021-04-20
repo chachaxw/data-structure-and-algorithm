@@ -2,19 +2,21 @@
  * @Author: Chacha
  * @Date: 2018-11-24 12:10:01
  * @Last Modified by: Chacha
- * @Last Modified time: 2021-03-26 18:13:27
- * @Source: https://leetcode.com/problems/two-sum/
+ * @Last Modified time: 2021-04-20 14:50:11
  */
 
-/***********************************************************************************
+/**
+ * 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出和为目标值的那两个整数，并返回它们的数组下标。
+ * 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
  *
- * Given an array of integers, return indices of the two numbers such that they add up to a specific target.
- * You may assume that each input would have exactly one solution, and you may not use the same element twice.
- * Example:
- *   Given nums = [2, 7, 11, 15], target = 9,
- *   Because nums[0] + nums[1] = 2 + 7 = 9,
- *   return [0, 1].
-************************************************************************************/
+ * 示例:
+ *   给定 nums = [2, 7, 11, 15], target = 9,
+ *   因为 nums[0] + nums[1] = 2 + 7 = 9,
+ *   返回 [0, 1].
+ *
+ * 来源：https://leetcode-cn.com/problems/two-sum/
+ *
+ */
 
 #include <iostream>
 #include <string>
@@ -23,9 +25,41 @@
 
 using namespace std;
 
-vector<int> twoSum(vector<int> &nums, int target)
+/**
+ * 方法一
+ * 暴力枚举，枚举数组中的每一个数 x，寻找数组中是否存在 target - x。当我们使用遍历整个数组的方式寻找target - x时，
+ * 需要注意到每一个位于 x 之前到元素都已经和 x 匹配过。而每一个元素不能被使用两次，
+ * 所以我们只需要在 x 后面的元素中寻找 target - x。
+ *
+ * 复杂度：
+ * 时间复杂度：O(N^2)，其中 N 是数组中的元素数量。最坏情况下数组中任意两个数都要被匹配一次。
+ * 空间复杂度：O(1)
+ *
+ */
+vector<int> twoSum1(vector<int> &nums, int target)
 {
-    //Key is the number and value is its index in the vector.
+    int n = nums.size();
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = i + 1; i < n; j++)
+        {
+            if (nums[i] + nums[j] == target)
+            {
+                return {i, j};
+            }
+        }
+    }
+
+    return {};
+}
+
+/**
+ * 方法二
+ */
+vector<int> twoSum2(vector<int> &nums, int target)
+{
+    // Key is the number and value is its index in the vector.
     unordered_map<int, int> hash;
     vector<int> result;
 
@@ -33,7 +67,7 @@ vector<int> twoSum(vector<int> &nums, int target)
     {
         int number = target - nums[i];
 
-        //if number is found in map, return them
+        // if number is found in map, return them
         if (hash.find(number) != hash.end())
         {
             result.push_back(hash[number]);
@@ -61,7 +95,7 @@ int main()
     /* code */
     int arr[] = {2, 7, 11, 15};
     vector<int> nums(arr, arr + sizeof(arr) / sizeof(int));
-    vector<int> result = twoSum(nums, 9);
+    vector<int> result = twoSum1(nums, 9);
 
     printVector(result);
 }
