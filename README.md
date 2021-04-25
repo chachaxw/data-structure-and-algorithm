@@ -5,6 +5,54 @@
 ![Github Stars](https://img.shields.io/github/stars/chachaxw/data-structure-and-algorithm)
 ![Github License](https://img.shields.io/github/license/chachaxw/data-structure-and-algorithm)
 
+## 🏠 目录结构(Structure)
+
+```vscode
+.
+├── .github/                      # github配置
+│   └── ...
+├── .vscode/                      # vscode配置
+│   └── ...
+├── basic_data_structure/         # 基本数据结构
+│   ├── array/                    # 数组(Array)
+│   │   └── ...
+│   ├── graph/                    # 图(Graph)
+│   │   └── ...
+│   ├── hash_table/               # 哈希表(Hash Table)
+│   │   └── ...
+│   ├── heap/                     # 堆(Heap)
+│   │   └── ...
+│   ├── linked_list/              # 链表(Linked List)
+│   │   └── ...
+│   ├── queue/                    # 队列(Queue)
+│   │   └── ...
+│   ├── stack/                    # 栈(Stack)
+│   │   └── ...
+│   ├── tree/                     # 树(Tree)
+│   │   └── ...
+│   ├── data_structure.png        # 数据结构概览图
+│   │   └── ...
+├── basic_sorting/                # 排序算法
+│   │
+│   └── ...
+├── binarytree/                   # 二叉树
+│   │
+│   └── ...
+├── books/                        # 书籍
+│   │
+│   └── ...
+├── cache_algorithm/              # 缓存算法(LFU、LRU、ARC、FIFO、MRU)
+│   │
+│   └── ...
+├── leetcode/                     # Leetcode算法题
+│   │
+│   └── ...
+│
+├── .gitignore                    # Git ignore 配置
+├── .editorconfig                 # 编辑器配置
+└── README.md                     # README
+```
+
 ## 🔭 学习工具(Learning Tools)
 
 1. [LeetCode](https://leetcode.com)
