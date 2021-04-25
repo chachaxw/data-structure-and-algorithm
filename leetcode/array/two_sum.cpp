@@ -56,6 +56,15 @@ vector<int> twoSum1(vector<int> &nums, int target)
 
 /**
  * 方法二
+ * 哈希表，方法一的时间复杂度较高的原因是寻找 target - x 的时间复杂度过高，
+ * 所以我们可以使用哈希表将 寻找 target - x 的时间复杂度从 O(N^2) 降低到 O(1)。
+ * 我们创建一个哈希表，对于每一个 x， 我们首先查询哈希表中是否存在 target - x，然后将 x 插入到哈希表中，
+ * 即保证不会让 x 和自己匹配。
+ *
+ * 复杂度：
+ * 时间复杂度：O(N)，其中 N 是数组正宗到元素数量。对于每一个元素 x，我们可以 O(1) 地寻找 target - x。
+ * 空间复杂度：O(N)，主要为哈希表的开销。
+ *
  */
 vector<int> twoSum2(vector<int> &nums, int target)
 {
