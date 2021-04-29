@@ -115,6 +115,8 @@ public:
 
         DLinkedNode *node = cache[key];
 
+        moveToHead(node);
+
         return node->value;
     }
 
