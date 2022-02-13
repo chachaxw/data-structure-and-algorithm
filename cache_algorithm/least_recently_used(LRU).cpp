@@ -44,7 +44,7 @@
 /**
  *  实现方法：哈希表 + 双向链表
  *
- * LRU 缓存机制可以通过哈希表辅以双向链表实现，可以用一个哈希表和一个双向链表维护所有在缓存中的简直队。
+ * LRU 缓存机制可以通过哈希表辅以双向链表实现，可以用一个哈希表和一个双向链表维护所有在缓存中的键值对。
  * 1. 双向链表按照被使用的顺序存储这些键值对，靠近头部的键值对是最近使用的，而靠近尾部的键值对是最久未使用的。
  * 2. 哈希表即为普通的哈希映射(HashMap)，通过缓存数据的键映射到其在双向链表中的位置。
  *
@@ -184,3 +184,22 @@ public:
         return node;
     }
 };
+
+int main(int argc, const char **argv)
+{
+    LRUCache *lruCache = new LRUCache(2);
+
+    lruCache->put(1, 1);
+    lruCache->put(2, 2);
+
+    std::cout << "lruCache->get(1) = " << lruCache->get(1) << std::endl;
+    std::cout << "lruCache->get(2) = " << lruCache->get(2) << std::endl;
+
+    lruCache->put(3, 3);
+
+    std::cout << "lruCache->get(1) = " << lruCache->get(1) << std::endl;
+    std::cout << "lruCache->get(2) = " << lruCache->get(2) << std::endl;
+    std::cout << "lruCache->get(3) = " << lruCache->get(3) << std::endl;
+
+    return 0;
+}
