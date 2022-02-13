@@ -71,7 +71,9 @@
         "utility": "cpp",
         "map": "cpp",
         "__tree": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "__bits": "cpp",
+        "clocale": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled",
     "fileheader.LastModifiedBy": "Chacha",
