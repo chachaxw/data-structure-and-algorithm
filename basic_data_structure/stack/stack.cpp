@@ -65,7 +65,7 @@ public:
  *  minStack.getMin();   --> Returns -2.
  *
  * Source: https://leetcode-cn.com/explore/learn/card/queue-stack/218/stack-last-in-first-out-data-structure/877/
-************************************************************************************/
+ ************************************************************************************/
 class MinStack
 {
 public:
@@ -99,7 +99,7 @@ public:
     {
         return s2.top();
     }
-}
+};
 
 /**
  * Your MinStack object will be instantiated and called as such:
@@ -110,8 +110,7 @@ public:
  * int param_4 = obj.getMin();
  */
 
-int
-main()
+int main()
 {
     MyStack s;
     s.push(1);

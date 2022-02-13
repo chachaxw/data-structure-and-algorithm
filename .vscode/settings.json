@@ -4,6 +4,7 @@
         "*.cjson": "jsonc",
         "*.wxss": "css",
         "*.wxs": "javascript",
+        "*.tsx": "typescriptreact",
         "unordered_map": "cpp",
         "vector": "cpp",
         "ostream": "cpp",
@@ -69,7 +70,8 @@
         "system_error": "cpp",
         "utility": "cpp",
         "map": "cpp",
-        "__tree": "cpp"
+        "__tree": "cpp",
+        "list": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled",
     "fileheader.LastModifiedBy": "Chacha",
