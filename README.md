@@ -103,6 +103,7 @@
 9. [堆(Heap)](https://shimo.im/docs/aH0fT9Z9trElZgsv)
 10. [图解算法数据结构](https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/55187i/)
 11. [LeetCode 刷题手册](https://books.halfrost.com/leetcode/)
+12. [COMP 557 Fundamentals of Computer Graphics W2015](http://www.cim.mcgill.ca/~langer/557.html)
 
 ## 🏷️ LeetCode 标签(LeetCode Tags)
 
