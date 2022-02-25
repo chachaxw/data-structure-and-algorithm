@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-02-24 17:47:37
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-02-24 19:13:14
+ * @Last Modified time: 2022-02-25 14:16:43
  */
 
 /**
@@ -67,12 +67,23 @@ public:
     // 重载 - 运算符，用于把两个对象相减
     OperatorOverload operator-(const OperatorOverload &o);
 
-    void showInfo(char str[]);
+    // 重载 = 赋值运算符
+    void operator=(const OperatorOverload &o);
+
+    // 获取对象成员数据 width height length 的乘积
+    double getValume();
+
+    void showInfo(char const str[]);
 
     ~OperatorOverload();
 };
 
-OperatorOverload::OperatorOverload(){};
+OperatorOverload::OperatorOverload()
+{
+    width = 0;
+    height = 0;
+    length = 0;
+};
 
 OperatorOverload::OperatorOverload(double w, double h, double l)
 {
@@ -104,11 +115,23 @@ OperatorOverload OperatorOverload::operator-(const OperatorOverload &o)
     return a;
 };
 
-void OperatorOverload::showInfo(char str[])
+void OperatorOverload::operator=(const OperatorOverload &o)
+{
+    width = o.width + 1;
+    height = o.height + 2;
+    length = o.length + 3;
+}
+
+void OperatorOverload::showInfo(char const str[])
 {
     cout << str << " width: " << width;
     cout << " height: " << height;
     cout << " length: " << length << endl;
+};
+
+double OperatorOverload::getValume()
+{
+    return width * height * length;
 };
 
 OperatorOverload::~OperatorOverload()
@@ -124,13 +147,19 @@ int main(int argc, char const *argv[])
     OperatorOverload obj3;
     OperatorOverload obj4;
 
+    obj1.showInfo("obj1");
+    obj2.showInfo("obj2");
+
     obj3 = obj1 + obj2;
     obj4 = obj3 - obj1;
 
-    obj1.showInfo("obj1");
-    obj2.showInfo("obj2");
     obj3.showInfo("obj3");
     obj4.showInfo("obj4");
+
+    cout << "obj1 valume " << obj1.getValume() << endl;
+    cout << "obj2 valume " << obj2.getValume() << endl;
+    cout << "obj3 valume " << obj3.getValume() << endl;
+    cout << "obj4 valume " << obj4.getValume() << endl;
 
     return 0;
 }
