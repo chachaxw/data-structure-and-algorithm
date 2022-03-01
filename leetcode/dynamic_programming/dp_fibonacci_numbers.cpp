@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-03-01 10:21:49
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-03-01 11:26:52
+ * @Last Modified time: 2022-03-01 13:58:43
  */
 
 /**
@@ -59,6 +59,13 @@ int Solution::fib(int n)
 /**
  * 解法2: 动态规划
  *
+ * 动规五部曲：
+ * 这里我们要用一个一维dp数组来保存递归的结果
+ * 1. 确定dp数组以及下标的含义
+ *    dp[i]的定义为：第i个数的斐波那契数值是dp[i]
+ * 2. 确定递推公式
+ *    斐波那契数列的公式: dp[i] = dp[i-1] + dp[i-2];
+ *
  * 时间复杂度: O(n)
  * 空间复杂度: O(1)
  *
@@ -68,15 +75,19 @@ int Solution::fib1(int n)
 {
     if (n < 2)
         return n;
-    int p = 0, q = 0, r = 1;
+
+    int dp[2];
+
+    dp[0] = 0;
+    dp[1] = 1;
 
     for (int i = 2; i <= n; i++)
     {
-        p = q;
-        q = r;
-        r = p + q;
+        int sum = dp[0] + dp[1];
+        dp[0] = dp[1];
+        dp[1] = sum;
     }
-    return r;
+    return dp[1];
 }
 
 int main(int argc, char const *argv[])
@@ -85,8 +96,10 @@ int main(int argc, char const *argv[])
 
     cout << "F(4) = " << s.fib(4) << endl;
     cout << "F(5) = " << s.fib(5) << endl;
+    cout << "F(6) = " << s.fib(6) << endl;
 
-    cout << "F(4) = " << s.fib1(4) << endl;
+    cout << "\nF(4) = " << s.fib1(4) << endl;
     cout << "F(5) = " << s.fib1(5) << endl;
+    cout << "F(6) = " << s.fib1(6) << endl;
     return 0;
 }
