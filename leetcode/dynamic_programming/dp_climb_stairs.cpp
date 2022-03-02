@@ -92,7 +92,6 @@ int Solution::climbStairs(int n)
  *
  * 时间复杂度：O(n)
  * 空间复杂度：O(1)
- *
  */
 int Solution::climbStairs1(int n)
 {
