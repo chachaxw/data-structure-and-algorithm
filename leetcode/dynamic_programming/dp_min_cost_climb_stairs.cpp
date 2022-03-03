@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-03-02 16:09:51
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-03-02 18:57:41
+ * @Last Modified time: 2022-03-03 10:46:46
  */
 
 /**
@@ -81,6 +81,7 @@ int Solution::minCostClimbingStairs(vector<int> cost)
         dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i];
     }
 
+    // 最后一步可以理解为不用花费，所以取倒数第一步，第二步的最少值
     return min(dp[cost.size() - 1], dp[cost.size() - 2]);
 };
 
