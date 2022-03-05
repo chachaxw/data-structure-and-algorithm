@@ -53,6 +53,8 @@ class Solution
 {
 public:
     int uniquePaths(int m, int n);
+
+    int uniquePaths1(int m, int n);
 };
 
 /**
@@ -83,7 +85,7 @@ public:
  * ├───────────────────────────│
  *
  * 时间复杂度: O(m × n)
- * 空间复杂度: O(n)
+ * 空间复杂度: O(m x n)
  *
  */
 int Solution::uniquePaths(int m, int n)
@@ -106,6 +108,29 @@ int Solution::uniquePaths(int m, int n)
     return dp[m - 1][n - 1];
 };
 
+/**
+ * 可以用一位数组进行优化，类似滚动数组的方式
+ * 时间复杂度: O(m × n)
+ * 空间复杂度: O(n)
+ */
+int Solution::uniquePaths1(int m, int n)
+{
+    vector<int> dp(n);
+
+    for (int i = 0; i < m; i++)
+        dp[i] = 1;
+
+    for (int j = 1; j < m; j++)
+    {
+        for (int i = 1; i < n; i++)
+        {
+            dp[i] += dp[i - 1];
+        }
+    }
+
+    return dp[n - 1];
+};
+
 int main(int argc, char const *argv[])
 {
     Solution s;
@@ -113,7 +138,7 @@ int main(int argc, char const *argv[])
     int m1 = 5, n1 = 9;
 
     cout << "Result is: " << s.uniquePaths(m, n) << endl;
-    cout << "Result is: " << s.uniquePaths(m1, n1) << endl;
+    cout << "Result is: " << s.uniquePaths1(m1, n1) << endl;
 
     return 0;
 }
