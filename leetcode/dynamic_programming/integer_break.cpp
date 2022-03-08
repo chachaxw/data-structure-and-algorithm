@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-03-08 11:13:10
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-03-08 16:42:28
+ * @Last Modified time: 2022-03-08 17:03:38
  */
 
 /**
@@ -33,6 +33,8 @@ class Solution
 {
 public:
     int integerBreak(int n);
+
+    int integerBreak1(int n);
 };
 
 /**
@@ -60,9 +62,12 @@ public:
  * 5. 举例推倒 dp 数组
  *    举例当 n 为 10的时候，dp数组里的数值，如下：
  *    下标i：   2   3   4   5   6   7   8   9   10
- *    dp[1]：  1   2   3   6   9   12  18  27  36
+ *    dp[1]：  1   2   4   6   9   12  18  27  36
  *
  * LeetCode官方题解：https://leetcode-cn.com/problems/integer-break/solution/zheng-shu-chai-fen-by-leetcode-solution/
+ *
+ * 时间复杂度：O(n^2)
+ * 空间复杂度：O(n)
  *
  */
 int Solution::integerBreak(int n)
@@ -79,6 +84,32 @@ int Solution::integerBreak(int n)
     }
 
     return dp[n];
+}
+
+/**
+ * 贪心算法
+ * 每次拆成n个3，如果剩下是4，则保留4，然后相乘。
+ */
+int Solution::integerBreak1(int n)
+{
+    if (n == 2)
+        return 1;
+    if (n == 3)
+        return 2;
+    if (n == 4)
+        return 4;
+
+    int result = 1;
+
+    while (n > 4)
+    {
+        result *= 3;
+        n -= 3;
+    }
+
+    result *= n;
+
+    return result;
 }
 
 int main(int argc, char const *argv[])
