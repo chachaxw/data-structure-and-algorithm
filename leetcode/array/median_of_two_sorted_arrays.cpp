@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2018-11-30 16:49:55
  * @Last Modified by: Chacha
- * @Last Modified time: 2021-03-26 18:13:00
+ * @Last Modified time: 2022-03-08 16:45:28
  */
 
 #include <iostream>
@@ -27,7 +27,7 @@ using namespace std;
  *
  * Source: https://leetcode.com/problems/median-of-two-sorted-arrays/
  *         https://leetcode.com/problems/median-of-two-sorted-arrays/solution/
-************************************************************************************/
+ ************************************************************************************/
 int findKth(
     vector<int> &nums1,
     vector<int>::size_type nums1_start,
@@ -37,18 +37,19 @@ int findKth(
 {
     if (nums1_start > nums1.size() - 1)
     {
-        // all of the element of num2 are smaller than the kTh number
+        // 如果 nums1 数组已经穷尽了, 则只能返回 nums2 中的第 k 个元素
         return nums2[nums2_start + k - 1];
     }
 
     if (nums2_start > nums2.size() - 1)
     {
-        // all of the element of num1 are smaller than the kTh number
+        // 如果 nums2 数组已经穷尽了, 则只能返回 nums1 中的第 k 个元素
         return nums1[nums1_start + k - 1];
     }
 
     if (k == 1)
     {
+        // 如果 k = 1 则返回两个数组中最小的那个
         return nums1[nums1_start] < nums2[nums2_start] ? nums1[nums1_start] : nums2[nums2_start];
     }
 
@@ -105,5 +106,10 @@ double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2)
 
 int main()
 {
+    vector<int> nums1(1, 2);
+    vector<int> nums2(3, 4);
+
+    cout << "两个数组的中间值: " << findMedianSortedArrays(nums1, nums2) << endl;
+
     return 0;
 }
