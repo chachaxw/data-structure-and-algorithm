@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-03-05 13:40:09
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-03-05 20:32:53
+ * @Last Modified time: 2022-03-08 19:23:08
  */
 
 /**
@@ -44,7 +44,7 @@ public:
 
 /**
  * 机器人从(0 , 0) 位置出发，到(m - 1, n - 1)终点。
- * 按照动规五部曲来分析：
+ * 按照动态规划五部曲来分析：
  * 1. 确定dp数组(dp table)以及下标的含义
  *    dp[i][j]: 表示从(0, 0)出发，到(i, j) 有 dp[i][j] 条不同的路径
  * 2. 确定递推公式
