@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2018-11-24 13:31:24
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-02-28 18:21:19
+ * @Last Modified time: 2022-03-11 20:03:15
  * @Source: 二叉树 https://leetcode-cn.com/leetbook/detail/data-structure-binary-tree/
  *          二叉树的遍历详解 https://shimo.im/docs/MAbjWlrqWqU1f72m
  */
@@ -13,6 +13,7 @@
 #include <vector>
 #include <stack>
 #include <deque>
+
 using namespace std;
 
 /**
@@ -389,10 +390,6 @@ void iterativePostOrderTraversal2(TreeNode *root)
 }
 
 /**
- * Binary Tree Level Order Traversal(二叉树层次遍历)
- */
-
-/**
  * 递归方式1
  *
  * 打印当前树的第n层
@@ -402,7 +399,7 @@ void iterativePostOrderTraversal2(TreeNode *root)
  * level: 当前递归层次
  *
  */
-int PrintLevel1(TreeNode *root, int n, int level)
+int printLevel1(TreeNode *root, int n, int level)
 {
 
     if (root == NULL || level < 0)
@@ -416,7 +413,7 @@ int PrintLevel1(TreeNode *root, int n, int level)
     }
     else
     {
-        return PrintLevel1(root->left, n, level + 1) + PrintLevel1(root->right, n, level + 1);
+        return printLevel1(root->left, n, level + 1) + printLevel1(root->right, n, level + 1);
     }
 }
 
@@ -429,7 +426,7 @@ int PrintLevel1(TreeNode *root, int n, int level)
  * n: 希望打印的层次
  *
  */
-int PrintLevel2(TreeNode *root, int level)
+int printLevel2(TreeNode *root, int level)
 {
 
     if (root == NULL || level < 0)
@@ -443,7 +440,7 @@ int PrintLevel2(TreeNode *root, int level)
     }
     else
     {
-        return PrintLevel2(root->left, level - 1) + PrintLevel2(root->right, level - 1);
+        return printLevel2(root->left, level - 1) + printLevel2(root->right, level - 1);
     }
 }
 
@@ -453,7 +450,7 @@ int PrintLevel2(TreeNode *root, int level)
  * 双队列法：一个储存本层的节点，另一个储存下层的节点
  *
  */
-void LevelOrderDev(TreeNode *root)
+void levelOrderDev(TreeNode *root)
 {
     deque<TreeNode *> qFirst, qSecond;
     qFirst.push_back(root);
@@ -488,7 +485,7 @@ void LevelOrderDev(TreeNode *root)
  * 双指针法：一个cur指向访问当层开始的节点，一个end指向访问当层结束节点的下一位置
  *
  */
-void LevelOrderUsePoint(TreeNode *root)
+void levelOrderUsePoint(TreeNode *root)
 {
     vector<TreeNode *> vec;
     vec.push_back(root);
@@ -520,8 +517,23 @@ void LevelOrderUsePoint(TreeNode *root)
     }
 }
 
+/* Given a binary tree, print its Nodes in inorder*/
+void printInorder(TreeNode *node)
+{
+    if (node == NULL)
+        return;
+
+    /* First recur on left subtree */
+    printInorder(node->left);
+
+    /* then print data of Node*/
+    cout << "[" << node->val << "], " << endl;
+
+    /* now recur on right subtree */
+    printInorder(node->right);
+}
+
 int main()
 {
-    /* code */
     return 0;
 }
