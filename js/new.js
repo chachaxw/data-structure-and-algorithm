@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-03-11 16:31:46
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-03-11 17:14:01
+ * @Last Modified time: 2022-03-12 19:11:49
  */
 
 /**
@@ -17,7 +17,7 @@ function objectFactory() {
     var obj = Object.create(constructor.prototype); // 根据构造函数的原型创建一个对象
     var result = constructor.apply(obj, arguments);
 
-    return typeof result === "object" && null !== result ? result : obj;
+    return typeof result === "object" && result !== null ? result : obj;
 }
 
 function Test(name, age) {

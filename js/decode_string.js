@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-03-12 11:35:35
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-03-12 12:11:28
+ * @Last Modified time: 2022-03-12 20:42:48
  */
 
 /**
@@ -22,12 +22,12 @@
  * @param {string} str
  */
 function decodeString(str) {
-    var reg = /(\d?)(\[[a-zA-Z]+\])/g;
+    const reg = /(\d?)(\[[a-zA-Z]+\])/g;
 
     if (!reg.test(str)) return str;
 
     str = str.replace(reg, function (_, p1, p2) {
-        var letter = "";
+        let letter = "";
 
         console.log(p1, p2);
 
