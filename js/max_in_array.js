@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-03-12 20:54:15
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-03-12 20:55:08
+ * @Last Modified time: 2022-03-12 23:50:58
  */
 
 /**
@@ -12,7 +12,6 @@
  * 输出：9
  */
 function getMaxFromArray(arr) {
-    /* 功能实现 */
     if (!Array.isArray(arr)) return;
 
     var max = arr[0];

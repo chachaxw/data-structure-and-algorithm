@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2019-01-14 18:30:40
  * @Last Modified by: Chacha
- * @Last Modified time: 2021-03-29 14:10:58
+ * @Last Modified time: 2022-03-13 22:19:50
  */
 
 /**
@@ -135,8 +135,18 @@ TreeNode *insertLevelOrder(int arr[], TreeNode *root, int i, int n)
 
 int main()
 {
-    int arr[] = {3, 9, 20, NULL, NULL, 15, 7};
-    // const int maxDepth = maxDepthIterative();
+    TreeNode *root = new TreeNode(3);
+    TreeNode *n1 = new TreeNode(9);
+    TreeNode *n2 = new TreeNode(20);
+    TreeNode *n3 = new TreeNode(15);
+    TreeNode *n4 = new TreeNode(7);
 
-    // cout << "Max depth is " << maxDepth << endl;
+    root->left = n1;
+    root->right = n2;
+    n2->left = n3;
+    n2->right = n4;
+
+    int maxDepth = maxDepthIterative(root);
+
+    cout << "Max depth is " << maxDepth << endl;
 }
