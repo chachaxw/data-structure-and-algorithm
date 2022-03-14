@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-03-13 16:25:15
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-03-13 23:35:48
+ * @Last Modified time: 2022-03-14 14:04:03
  */
 
 /**
@@ -42,7 +42,9 @@ public:
 
     int partition(vector<int> &nums, int left, int right);
 
-    void swapNums(vector<int> &nums, int index1, int index2);
+    void maxHeapify(vector<int> &nums, int i, int heap_size);
+
+    void buildMaxHeap(vector<int> &nums, int heap_size);
 };
 
 /**
@@ -71,7 +73,6 @@ int Solution::findKthLargest1(vector<int> &nums, int k)
  *
  * 时间复杂度：O(n)
  * 空间复杂度：O(log n)
- *
  *
  */
 int Solution::findKthLargest2(vector<int> &nums, int k)
@@ -118,34 +119,68 @@ int Solution::partition(vector<int> &nums, int left, int right)
         {
             // j 的初值为 left，先右移，再交换，小于 pivot 的元素都被交换到前面
             j++;
-            swapNums(nums, j, i);
+            swap(nums[j], nums[i]);
         }
     }
 
     // 在之前的遍历中，满足 nums[left+1]...nums[j] < pivot，并且 nums[j]...nums[i] >= pivot。
     // 交换之后，nums[left]...nums[j-1] < pivot，nums[j] = pivot，nums[j+1]...nums[i] >= pivot。
-    swapNums(nums, j, left);
+    swap(nums[j], nums[left]);
     return j;
-};
-
-void Solution::swapNums(vector<int> &nums, int index1, int index2)
-{
-    int temp = nums[index1];
-    nums[index1] = nums[index2];
-    nums[index2] = temp;
 };
 
 /**
  * 方法三：堆(优先队列)
+ * 可以用堆排序来解决这个问题-建立一个大根堆，做 k - 1 次 删除操作后，堆顶的元素就是我们要找的答案。
+ * C++ 中可以直接用 priority_queue 来创建大根堆，但这里我们自己实现一个大根堆方法来创建大根堆。
  *
+ * 时间复杂度：O(n*log n)，n是数组的长度
+ * 空间复杂度：O(log n)
  *
  */
 int Solution::findKthLargest3(vector<int> &nums, int k)
 {
-    int size = nums.size();
-    sort(begin(nums), end(nums));
-    return nums[size - k];
+    int heap_size = nums.size();
+    buildMaxHeap(nums, heap_size);
+
+    for (int i = nums.size() - 1; i >= nums.size() - k + 1; i--)
+    {
+        swap(nums[0], nums[i]);
+        heap_size--;
+        maxHeapify(nums, 0, heap_size);
+    }
+
+    return nums[0];
 };
+
+void Solution::maxHeapify(vector<int> &nums, int i, int heap_size)
+{
+    int l = i * 2 + 1, r = i * 2 + 2, largest = i;
+
+    if (l < heap_size && nums[l] > nums[largest])
+    {
+        largest = l;
+    }
+
+    if (r < heap_size && nums[r] > nums[largest])
+    {
+        largest = r;
+    }
+
+    if (largest != i)
+    {
+        swap(nums[i], nums[largest]);
+        maxHeapify(nums, largest, heap_size);
+    }
+}
+
+void Solution::buildMaxHeap(vector<int> &nums, int heap_size)
+{
+    for (int i = heap_size / 2; i >= 0; i--)
+    {
+        maxHeapify(nums, i, heap_size);
+    }
+}
 
 int main(int argc, char const *argv[])
 {
@@ -158,6 +193,9 @@ int main(int argc, char const *argv[])
 
     cout << "数组 nums 中第1个最大元素: " << s.findKthLargest2(nums, 1) << endl;
     cout << "数组 nums 中第2个最大元素: " << s.findKthLargest2(nums, 2) << endl;
+
+    cout << "数组 nums 中第1个最大元素: " << s.findKthLargest3(nums, 1) << endl;
+    cout << "数组 nums 中第2个最大元素: " << s.findKthLargest3(nums, 2) << endl;
 
     return 0;
 }
