@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2018-12-13 22:10:30
  * @Last Modified by: Chacha
- * @Last Modified time: 2021-03-09 17:14:13
+ * @Last Modified time: 2022-03-16 21:52:41
  */
 
 /**
@@ -17,8 +17,8 @@
 
 #include <iostream>
 using namespace std;
-template <typename T> //整数或浮点数皆可使用,若要使用类(class)或结构体(struct)时必须重载大于(>)运算符
 
+template <typename T> //整数或浮点数皆可使用,若要使用类(class)或结构体(struct)时必须重载大于(>)运算符
 void bubbleSort(T arr[], int len)
 {
     int i, j;
