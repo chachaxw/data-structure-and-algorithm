@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-03-21 17:23:19
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-03-21 18:01:45
+ * @Last Modified time: 2022-03-22 15:59:04
  */
 
 /**
@@ -42,6 +42,6 @@ const sum = (a, b, c) => a + b + c;
 
 let curriedSum = curry(sum);
 
-console.log(curriedSum(1, 2, 3));
-console.log(curriedSum(1)(2, 3));
-console.log(curriedSum(1)(2)(3));
+console.log(curriedSum(1, 2, 3)); // 6
+console.log(curriedSum(1)(2, 3)); // 6
+console.log(curriedSum(1)(2)(3)); // 6
