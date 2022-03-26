@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-03-20 14:32:32
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-03-26 01:16:22
+ * @Last Modified time: 2022-03-26 15:51:40
  */
 
 /**
@@ -239,7 +239,7 @@ int Solution::strStr(string haystack, string needle)
         }
     }
 
-    return 0;
+    return -1;
 }
 
 void Solution::getNext(int *next, const string &s)
@@ -268,9 +268,15 @@ int main(int argc, char const *argv[])
 {
     Solution s;
     string haystack = "aabaabaafa";
+    string haystack1 = "hello";
+    string haystack2 = "aaaaa";
     string needle = "aabaaf";
+    string needle1 = "ll";
+    string needle2 = "bba";
 
-    cout << s.strStr(haystack, needle) << endl; // 输出 3
+    cout << s.strStr(haystack, needle) << endl;   // 输出 3
+    cout << s.strStr(haystack1, needle1) << endl; // 输出 2
+    cout << s.strStr(haystack2, needle2) << endl; // 输出 -1
 
     return 0;
 }
