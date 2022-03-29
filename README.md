@@ -35,7 +35,7 @@
 ├── basic_sorting/                # 排序算法
 │   │
 │   └── ...
-├── binarytree/                   # 二叉树
+├── js                            # Javascript算法相关
 │   │
 │   └── ...
 ├── books/                        # 书籍
