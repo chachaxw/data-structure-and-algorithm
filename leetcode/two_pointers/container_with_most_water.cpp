@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-04-01 21:20:42
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-04-01 22:04:58
+ * @Last Modified time: 2022-04-01 22:10:08
  */
 
 /**
@@ -61,8 +61,7 @@ public:
  */
 int Solution::maxArea(vector<int> &height)
 {
-    int i = 0, j = height.size() - 1;
-    int ans = 0;
+    int i = 0, j = height.size() - 1, ans = 0;
 
     while (i < j)
     {
@@ -77,9 +76,12 @@ int main(int argc, char const *argv[])
     Solution s;
 
     vector<int> height = {1, 8, 6, 2, 5, 4, 8, 3, 7};
+    vector<int> height1 = {1, 1};
 
     cout
         << "输入：[1,8,6,2,5,4,8,3,7] 输出：" << s.maxArea(height) << endl;
+    cout
+        << "输入：[1, 1] 输出：" << s.maxArea(height1) << endl;
 
     return 0;
 }
