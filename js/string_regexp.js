@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-04-02 13:19:17
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-04-02 13:45:03
+ * @Last Modified time: 2022-04-02 18:58:24
  */
 
 /**
@@ -60,3 +60,26 @@ const res4 = string.replace(
 console.log("====================================");
 console.log(res4);
 console.log("====================================");
+
+/**
+ * 实现一个render(str,parameter)方法，将str中的占位符用parameter填充?
+ *
+ */
+
+// 测试用例：
+const str = "下周一{{people1}}和{{people2}}去游泳";
+const obj = {
+    people1: "小明",
+    people2: "小红",
+};
+const render = (str, parameter) => {
+    const keys = Object.keys(parameter);
+
+    keys.forEach((key) => {
+        str = str.replaceAll(`{{${key}}}`, parameter[key]);
+    });
+
+    return str;
+};
+
+console.log("Render", render(str, obj));
