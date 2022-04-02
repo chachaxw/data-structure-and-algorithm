@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-03-22 10:54:56
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-03-22 13:17:39
+ * @Last Modified time: 2022-04-02 19:39:33
  */
 
 //
@@ -25,6 +25,7 @@
  * [0, 0, 0, 0, 1, 1, 2, 3, 3, 3]，生成数组后，从数组中随机选出一个作为结果。
  *
  * @param {number[]} input
+ * @returns {() => []}
  */
 function createWeightedSampling(input) {
     let data = [];
