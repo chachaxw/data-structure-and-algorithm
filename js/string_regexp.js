@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-04-02 13:19:17
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-04-02 18:58:24
+ * @Last Modified time: 2022-04-02 19:35:49
  */
 
 /**
@@ -63,7 +63,6 @@ console.log("====================================");
 
 /**
  * 实现一个render(str,parameter)方法，将str中的占位符用parameter填充?
- *
  */
 
 // 测试用例：
@@ -83,3 +82,30 @@ const render = (str, parameter) => {
 };
 
 console.log("Render", render(str, obj));
+
+/**
+ * 实现一个简易的模板引擎？（阿里）
+ */
+const template = "嗨，{{ info.name.value }}您好，今天是星期 {{ day.value }}";
+const data = {
+    info: {
+        name: {
+            value: "张三",
+        },
+    },
+    day: {
+        value: "三",
+    },
+};
+
+// [\s\S] 匹配所有。\s 是匹配所有空白符，包括换行，\S 非空白符，不包括换行。
+const renderTemplate = (template, data) => {
+    return template.replace(/\{\{([\s\S]+?)\}\}/g, (match, $1) => {
+        console.log(match, $1);
+        const val = $1.trim();
+        return eval("data." + val);
+    });
+};
+const renderedTml = renderTemplate(template, data);
+
+console.log(renderedTml); // 嗨，张三您好，今天是星期三
