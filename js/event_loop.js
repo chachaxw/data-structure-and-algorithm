@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-03-29 20:37:15
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-04-04 20:50:45
+ * @Last Modified time: 2022-04-04 22:52:30
  */
 
 /**
@@ -22,21 +22,21 @@
  *    有的话，清空微任务队列。重复4，继续从宏任务中取任务执行，执行完成之后，继续清空微任务，如此反复循环，直至清空所有的任务。
  *
  *
- *             执行栈                                                                    WebAPIs
- *     ┌────────────────────┐                   MacroTask Queue                  ┌────────────────────┐
- *     │                    │  Push  ┌──────────────────────────────────┐        │  setTimeout        │
- *     │                    │<───────│ Callback1  Callback2  Callback3  │<───────│  addEventListener  │
- *     │                 │  │        └──────────────────────────────────┘        │  Ajax              │
- *     │       Call3     │  │                                                    │  onload            │
- *     │                 │  │                                                    │  click             │
- *     │       Call2     │  │                                                    │  setImmediate(IE)  │
- *     │                 │  │                                                    │  MessageChannel    │
- *     │       Call1     │  │                                                    └────────────────────┘
- *     │                 │  │
- *     │       Global    │  │                   MicroTask Queue                  ┌────────────────────┐
- *     │                 v  │        ┌──────────────────────────────────┐        │  promise.then()    │
- *     │                    │───────>│ incoming: connections, data, ... │<───────│  MutationObserver  │
- *     └────────────────────┘        └──────────────────────────────────┘        └────────────────────┘
+ *           执行栈                                                                    WebAPIs
+ *   ┌────────────────────┐                   MacroTask Queue                  ┌────────────────────┐
+ *   │                    │  Push  ┌──────────────────────────────────┐        │  setTimeout        │
+ *   │                    │<───────│ Callback1  Callback2  Callback3  │<───────│  addEventListener  │
+ *   │                 │  │        └──────────────────────────────────┘        │  Ajax              │
+ *   │       Call3     │  │                                                    │  onload            │
+ *   │                 │  │                                                    │  click             │
+ *   │       Call2     │  │                                                    │  setImmediate(IE)  │
+ *   │                 │  │                                                    │  MessageChannel    │
+ *   │       Call1     │  │                                                    └────────────────────┘
+ *   │                 │  │
+ *   │       Global    │  │                   MicroTask Queue                  ┌────────────────────┐
+ *   │                 v  │        ┌──────────────────────────────────┐        │  promise.then()    │
+ *   │                    │───────>│ incoming: connections, data, ... │<───────│  MutationObserver  │
+ *   └────────────────────┘        └──────────────────────────────────┘        └────────────────────┘
  *
  *
  * 浏览器中的任务源(task):
