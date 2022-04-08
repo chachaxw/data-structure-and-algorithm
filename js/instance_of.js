@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-03-28 00:00:28
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-03-28 10:02:11
+ * @Last Modified time: 2022-04-07 18:19:32
  */
 
 /**
@@ -16,13 +16,17 @@ const instanceOf1 = (obj, func) => {
         return false;
     }
 
+    // 获取对象的原型 prototype
     let proto = Object.getPrototypeOf(obj);
 
     if (proto === func.prototype) {
+        // 如果原型 proto 与 func 的原型一致，就说明 obj 是 func 的实例对象，返回 true。
         return true;
     } else if (proto === null) {
+        // 如果 proto 等于 null，返回 false。
         return false;
     } else {
+        // 否则，继续向上查找原型的原型
         return instanceOf1(proto, func);
     }
 };
@@ -48,16 +52,6 @@ const instanceOf2 = (obj, func) => {
     }
 
     return false;
-
-    // while (true) {
-    //   if (proto === null) {
-    //     return false
-    //   } else if (proto === func.prototype) {
-    //     return true
-    //   } else {
-    //     proto = Object.getPrototypeOf(proto)
-    //   }
-    // }
 };
 
 let Fn = function () {};

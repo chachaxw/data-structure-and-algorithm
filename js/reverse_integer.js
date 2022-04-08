@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-04-02 22:32:27
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-04-02 22:55:48
+ * @Last Modified time: 2022-04-07 17:50:19
  */
 
 /**
@@ -50,7 +50,7 @@ const reverseNum = (num) => {
     return result;
 };
 
-console.log("x = 123, 反转之后", reverseNum(123));
-console.log("x = -123, 反转之后", reverseNum(-123));
-console.log("x = 120, 反转之后", reverseNum(120));
-console.log("x = 0, 反转之后", reverseNum(0));
+console.log("x = 123, 反转之后", reverseNum(123)); // 321
+console.log("x = -123, 反转之后", reverseNum(-123)); // -321
+console.log("x = 120, 反转之后", reverseNum(120)); // 21
+console.log("x = 0, 反转之后", reverseNum(0)); // 0
