@@ -64,6 +64,7 @@
 7. [可视化排序算法 Sorting](http://sorting.at/)
 8. [动画学习算法和数据结构 VisulaGo](https://visualgo.net/en)
 9. [普林斯顿大学经典算法教材](https://algs4.cs.princeton.edu/home/)
+10. [代码随想录](https://programmercarl.com)
 
 ## 🙉 排序算法(Sorting Algorithm)
 

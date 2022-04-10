@@ -79,7 +79,6 @@ class Game {
 
 const m: Position = { x: 3, y: 2 };
 const h: Position = { x: 1, y: 8 };
-
 const game = new Game(13, 6, m, h);
 
 console.log(game);

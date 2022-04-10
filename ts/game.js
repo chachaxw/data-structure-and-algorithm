@@ -1,8 +1,8 @@
 /**
 
 input:
-- gameboardWidth: int
-- gameboardHeight: int
+- gameBoardWidth: int
+- gameBoardHeight: int
 - mPosition: ?
 - hPosition: ?
 
@@ -44,7 +44,8 @@ class Game {
                         if (i === this.mPosition.x && j === this.mPosition.y) {
                             wall += "M";
                         }
-                        else if (i === this.hPosition.x && j === this.hPosition.y) {
+                        else if (i === this.hPosition.x &&
+                            j === this.hPosition.y) {
                             wall += "H";
                         }
                         else {
