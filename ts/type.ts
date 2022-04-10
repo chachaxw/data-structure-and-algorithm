@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-04-10 14:35:33
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-04-10 15:10:48
+ * @Last Modified time: 2022-04-10 15:32:05
  */
 /**
  * Typescript常见类型
@@ -72,3 +72,25 @@ enum FileAccess {
  * void 和 undefined 类型最大的区别是: undefined 是 void 的子集，当你对函数的返回值并不在意时，使用 void 而不是 undefined。
  *
  */
+
+/**
+ * Tuple
+ * 元组(Tuple)表示一个已知数量和类型的数组，可以理解它是一种特殊的数组。
+ *
+ */
+const tuple: [string, number] = ["Hello", 1];
+
+/**
+ * never
+ * never 类型是没法正常结束返回的类型，一个必定会报错或死循环的函数会返回这样的类型。
+ *
+ */
+function testNever(): never {
+    throw new Error("testNever return never type");
+}
+function testNever1(): never {
+    while (true) {}
+}
+
+// 任何类型联合上 never 类型，还是原来的类型
+type language = "TS" | never;
