@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-04-01 21:20:42
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-04-01 22:10:08
+ * @Last Modified time: 2022-04-11 11:22:49
  */
 
 /**
@@ -20,8 +20,8 @@
  *
  * 提示：
  * 1. n == height.length
- * 2. 2 <= n <= 105
- * 3. 0 <= height[i] <= 104
+ * 2. 2 <= n <= 10^5
+ * 3. 0 <= height[i] <= 10^4
  *
  */
 
