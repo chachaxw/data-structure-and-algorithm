@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-04-11 11:06:31
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-04-11 13:19:37
+ * @Last Modified time: 2022-04-15 22:46:06
  */
 
 /**
@@ -61,9 +61,9 @@ public:
 /**
  * 排序 + 贪心
  *
- * 时间复杂度：O(nlogn)，其中 n 是数组 points 的长度。排序的时间复杂度为 O(nlogn)，
- *           对所有气球进行遍历并计算答案的时间复杂度为 O(n)，其在渐进意义下小于前者，因此可以忽略。
- * 空间复杂度：O(logn)，即为排序需要使用的栈空间。
+ * 时间复杂度：O(NlogN)，其中 N 是数组 points 的长度。排序的时间复杂度为 O(NlogN)，
+ *           对所有气球进行遍历并计算答案的时间复杂度为 O(N)，其在渐进意义下小于前者，因此可以忽略。
+ * 空间复杂度：O(logN)，即为排序需要使用的栈空间。
  *
  */
 int Solution::findMinArrowShots(vector<vector<int>> &points)
