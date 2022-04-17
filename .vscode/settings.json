@@ -75,7 +75,8 @@
         "__bits": "cpp",
         "clocale": "cpp",
         "fstream": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "set": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled",
     "fileheader.LastModifiedBy": "Chacha",

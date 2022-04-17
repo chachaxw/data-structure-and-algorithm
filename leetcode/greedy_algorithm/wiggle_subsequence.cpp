@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-04-16 23:18:10
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-04-17 00:00:28
+ * @Last Modified time: 2022-04-17 23:05:41
  */
 
 /**
@@ -37,6 +37,7 @@
 
 #include <iostream>
 #include <vector>
+#include <string.h>
 
 using namespace std;
 
@@ -45,7 +46,11 @@ class Solution
 private:
     /* data */
 public:
+    int dp[1005][2];
+
     int wiggleMaxLength(vector<int> &nums);
+
+    int wiggleMaxLength1(vector<int> &nums);
 };
 
 /**
@@ -90,14 +95,63 @@ int Solution::wiggleMaxLength(vector<int> &nums)
     return result;
 };
 
+/**
+ * 动态规划
+ *
+ * 很容易发现，对于我们当前考虑的这个数，要么是作为山峰（即nums[i] > nums[i-1]），要么是作为山谷（即nums[i] < nums[i - 1]）。
+ * 1. 设dp状态dp[i][0]，表示考虑前i个数，第i个数作为山峰的摆动子序列的最长长度
+ * 2. 设dp状态dp[i][2]，表示考虑前i个数，第i个数作为山谷的摆动子序列的最长长度
+ *
+ * 则转移方程为：
+ * 1. dp[i][0] = max(dp[i][0], dp[j][1] + 1)，其中 0 < j < i 且 nums[j] < nums[i]，表示将nums[i]接到前面某个山谷后面，作为山峰。
+ * 2. dp[i][1] = max(dp[i][1], dp[j][0] + 1)，其中 0 < j < i 且 nums[j] > nums[i]，表示将nums[i]接到前面某个山峰后面，作为山谷。
+ *
+ * 初始状态：
+ * 由于一个数可以接到前面的某个数后面，也可以以自身为子序列的起点，所以初始状态为：dp[0][0] = dp[0][1] = 1。
+ *
+ */
+int Solution::wiggleMaxLength1(vector<int> &nums)
+{
+    // void *memset(void *str, int c, size_t n) 复制字符 c（一个无符号字符）到参数 str 所指向的字符串的前 n 个字符。
+    memset(dp, 0, sizeof dp);
+
+    dp[0][0] = dp[0][1] = 1;
+
+    for (int i = 1; i < nums.size(); i++)
+    {
+        dp[i][0] = dp[i][1] = 1;
+
+        for (int j = 0; j < i; j++)
+        {
+            if (nums[j] > nums[i])
+            {
+                dp[i][1] = max(dp[i][1], dp[j][0] + 1);
+            }
+        }
+
+        for (int j = 0; j < i; j++)
+        {
+            if (nums[j] < nums[i])
+            {
+                dp[i][0] = max(dp[i][0], dp[j][1] + 1);
+            }
+        }
+    }
+
+    return max(dp[nums.size() - 1][0], dp[nums.size() - 1][1]);
+};
+
 int main(int argc, char const *argv[])
 {
     Solution s;
     vector<int> nums = {1, 7, 4, 9, 2, 5};
     vector<int> nums1 = {1, 17, 5, 10, 13, 15, 10, 5, 16, 8};
 
-    cout << "[1, 7, 4, 9, 2, 5]：" << s.wiggleMaxLength(nums) << endl;
-    cout << "[1, 17, 5, 10, 13, 15, 10, 5, 16, 8]：" << s.wiggleMaxLength(nums1) << endl;
+    cout << "wiggleMaxLength [1, 7, 4, 9, 2, 5]：" << s.wiggleMaxLength(nums) << endl;
+    cout << "wiggleMaxLength [1, 17, 5, 10, 13, 15, 10, 5, 16, 8]：" << s.wiggleMaxLength(nums1) << endl;
+
+    cout << "\n wiggleMaxLength1 [1, 7, 4, 9, 2, 5]：" << s.wiggleMaxLength1(nums) << endl;
+    cout << "wiggleMaxLength1 [1, 17, 5, 10, 13, 15, 10, 5, 16, 8]：" << s.wiggleMaxLength1(nums1) << endl;
 
     return 0;
 }
