@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-04-18 14:53:00
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-04-18 15:19:30
+ * @Last Modified time: 2022-04-22 13:48:28
  */
 
 /**
@@ -42,10 +42,12 @@ private:
     /* data */
 public:
     int maxSubArray(vector<int> &nums);
+
+    int maxSubArray1(vector<int> &nums);
 };
 
 /**
- * 贪心解法
+ * 方法一：贪心解法
  *
  * 贪心贪的是哪里呢？如果 -2 1 在一起，计算起点的时候，一定是从 1 开始计算，因为负数只会拉低总和，这就是贪心贪的地方。
  *
@@ -59,6 +61,9 @@ public:
  * 区间的终止位置，其实就是如果count取到最大值了，及时记录下来了。例如如下代码：
  * if (count > result) result = count;
  * 这样相当于是用result记录最大子序和区间和（变相的算是调整了终止位置）。
+ *
+ * 时间复杂度：O(n)
+ * 空间复杂度：O(1)
  *
  */
 int Solution::maxSubArray(vector<int> &nums)
@@ -86,6 +91,30 @@ int Solution::maxSubArray(vector<int> &nums)
     return result;
 };
 
+int Solution::maxSubArray1(vector<int> &nums)
+{
+    if (nums.size() == 0)
+    {
+        return 0;
+    }
+
+    vector<int> dp(nums.size(), 0); // dp[i] 表示包括 i 之前的最大连续子序列和
+    dp[0] = nums[0];
+    int result = dp[0];
+
+    for (int i = 1; i < nums.size(); i++)
+    {
+        dp[i] = max(dp[i - 1] + nums[i], nums[i]); // 状态转移方程
+
+        if (dp[i] > result)
+        {
+            result = dp[i]; // result 保存 dp[i] 的最大值
+        }
+    }
+
+    return result;
+};
+
 int main(int argc, char const *argv[])
 {
     Solution s;
@@ -94,6 +123,9 @@ int main(int argc, char const *argv[])
 
     std::cout << "[-2, 1, -3, 4, -1, 2, 1, -5, 4]最大子数组和: " << s.maxSubArray(nums) << std::endl;
     std::cout << "[5, 4, -1, 7, 8]最大子数组和: " << s.maxSubArray(nums1) << std::endl;
+
+    std::cout << "\n[-2, 1, -3, 4, -1, 2, 1, -5, 4]最大子数组和: " << s.maxSubArray1(nums) << std::endl;
+    std::cout << "[5, 4, -1, 7, 8]最大子数组和: " << s.maxSubArray1(nums1) << std::endl;
 
     return 0;
 }
