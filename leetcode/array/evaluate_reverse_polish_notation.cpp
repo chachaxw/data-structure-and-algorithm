@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-04-24 16:01:51
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-04-24 16:51:35
+ * @Last Modified time: 2022-04-24 17:04:37
  */
 
 /**
@@ -138,8 +138,11 @@ int Solution::evalRPN(vector<string> &tokens)
 int main(int argc, char const *argv[])
 {
     Solution s;
-    vector<string> tokens = {'2', '1', '+', '3', '*'};
-    vector<string> tokens1 = {'10', '6', '9', '3', '+', '-11', '*', '/', '*', '17', '+', '5', '+'};
+
+    string str[] = {"2", "1", "1", "3", "3"};
+    string str1[] = {"10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"};
+    vector<string> tokens(str, str + 5);
+    vector<string> tokens1(str1, str1 + 13);
 
     cout << "tokens = ['2', '1', '+', '3', '*'], 运算结果为: " << s.evalRPN(tokens) << endl;
     cout << "tokens = ['10', '6', '9', '3', '+', '-11', '*', '/', '*', '17', '+', '5', '+'], 运算结果为: " << s.evalRPN(tokens1) << endl;
