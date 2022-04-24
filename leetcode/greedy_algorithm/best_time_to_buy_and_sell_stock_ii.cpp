@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-04-23 23:33:43
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-04-23 23:59:19
+ * @Last Modified time: 2022-04-24 16:46:52
  */
 
 /**
@@ -60,8 +60,15 @@ public:
  * 此时就是把利润分解为每天为单位的维度，而不是从0天到第3天整体去考虑。
  * 那么根据prices可以得到每天的利润序列：(prices[i] - prices[i - 1]).....(prices[1] - prices[0])。
  *
- * 时间复杂度：$O(n)
- * 空间复杂度：$O(1)
+ * 如图：
+ * 股票价格：   7    1    5    3    6    4
+ * 每天利润：       -6    4   -2    3   -2
+ * 贪心，每天只收集整利润：  4 + 3 = 7
+ *
+ * 局部最优：收集每天的正利润，全局最优：求得最大利润。
+ *
+ * 时间复杂度：O(n)
+ * 空间复杂度：O(1)
  *
  */
 int Solution::maxProfit(vector<int> &prices)
@@ -78,8 +85,10 @@ int main(int argc, char const *argv[])
 {
     Solution s;
     vector<int> prices = {7, 1, 5, 3, 6, 4};
+    vector<int> prices1 = {1, 2, 3, 4, 5};
 
-    cout << "prices = [7,1,5,3,6,4], 最大利润为" << s.maxProfit(prices) << endl;
+    cout << "prices = [7, 1, 5, 3, 6, 4], 最大利润为" << s.maxProfit(prices) << endl; // 7
+    cout << "prices = [1, 2, 3, 4, 5], 最大利润为" << s.maxProfit(prices1) << endl;   // 4
 
     return 0;
 }
