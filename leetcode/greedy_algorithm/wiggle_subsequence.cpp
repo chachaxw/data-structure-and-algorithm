@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2022-04-16 23:18:10
  * @Last Modified by: Chacha
- * @Last Modified time: 2022-04-17 23:05:41
+ * @Last Modified time: 2022-04-22 11:07:50
  */
 
 /**
@@ -96,7 +96,7 @@ int Solution::wiggleMaxLength(vector<int> &nums)
 };
 
 /**
- * 动态规划
+ * 方法二：动态规划
  *
  * 很容易发现，对于我们当前考虑的这个数，要么是作为山峰（即nums[i] > nums[i-1]），要么是作为山谷（即nums[i] < nums[i - 1]）。
  * 1. 设dp状态dp[i][0]，表示考虑前i个数，第i个数作为山峰的摆动子序列的最长长度
