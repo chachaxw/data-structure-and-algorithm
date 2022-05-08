@@ -2,7 +2,7 @@
  * @Author: Chacha
  * @Date: 2018-12-28 18:05:11
  * @Last Modified by: Chacha
- * @Last Modified time: 2021-04-19 22:59:03
+ * @Last Modified time: 2022-05-08 10:57:34
  */
 
 /**
@@ -33,8 +33,8 @@ using namespace std;
 
 /**
  * 题解：
- * 计算出全部数组的和，当遍历到第i个元素时，设其左侧元素之和为sum，则其右侧元素之和为 total - numsi - sum。
- * 左右侧元素相等即为 sum = total - numsi - sum，即 2 x sum + numsi = total。
+ * 计算出全部数组的和，当遍历到第i个元素时，设其左侧元素之和为sum，则其右侧元素之和为 total - nums[i] - sum。
+ * 左右侧元素相等即为 sum = total - nums[i] - sum，即 2 x sum + nums[i] = total。
  *
  * 当中心索引左侧或右侧没有元素时，即为零个项相加，这在数学上称作「空和」（empty sum）。在程序设计中我们约定「空和是零」。
  *
