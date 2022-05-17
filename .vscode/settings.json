@@ -76,7 +76,9 @@
         "clocale": "cpp",
         "fstream": "cpp",
         "iomanip": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "version": "cpp",
+        "filesystem": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled",
     "fileheader.LastModifiedBy": "Chacha",
